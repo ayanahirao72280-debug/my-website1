@@ -157,26 +157,38 @@
         color: var(--deep);
       }
 
-      .hero-media {
+      .hero-art {
         position: relative;
         overflow: hidden;
         min-height: 520px;
-        background: #173c36;
+        background:
+          radial-gradient(circle at 32% 30%, rgba(255, 247, 181, 0.92) 0 6%, transparent 7%),
+          radial-gradient(circle at 64% 40%, rgba(255, 255, 255, 0.32) 0 10%, transparent 11%),
+          linear-gradient(135deg, #1e5f50 0 31%, #508d62 32% 49%, #d7b261 50% 70%, #7f5d71 71% 100%);
       }
 
-      .hero-media img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        filter: saturate(1.08) contrast(1.03);
-      }
-
-      .hero-media::after {
+      .hero-art::before,
+      .hero-art::after {
         content: "";
         position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(18, 48, 43, 0.02), rgba(18, 48, 43, 0.56));
+        inset: auto -12% 0 -12%;
+        height: 48%;
+        background:
+          linear-gradient(12deg, transparent 0 18%, rgba(255, 255, 255, 0.58) 19% 20%, transparent 21% 100%),
+          linear-gradient(150deg, transparent 0 28%, rgba(255, 255, 255, 0.5) 29% 30%, transparent 31% 100%),
+          linear-gradient(135deg, #8a6f48, #caa45f 58%, #f1db9b);
+        clip-path: polygon(0 58%, 12% 42%, 23% 54%, 37% 28%, 53% 49%, 65% 22%, 82% 44%, 100% 18%, 100% 100%, 0 100%);
+      }
+
+      .hero-art::after {
+        inset: 0 -4% auto auto;
+        width: 54%;
+        height: 58%;
+        opacity: 0.88;
+        background:
+          radial-gradient(circle at 42% 44%, #ffe6a3 0 13%, transparent 14%),
+          linear-gradient(145deg, #5b4b7b, #253f53 64%, #132c32);
+        clip-path: polygon(44% 0, 100% 0, 100% 100%, 18% 76%, 0 31%);
       }
 
       .art-label {
@@ -221,11 +233,19 @@
         background: #102a27;
       }
 
-      .showcase-card img {
+      .region-visual {
         width: 100%;
         height: 100%;
-        display: block;
-        object-fit: cover;
+        min-height: 280px;
+        background:
+          radial-gradient(circle at 68% 34%, rgba(255, 255, 255, 0.76) 0 7%, transparent 8%),
+          linear-gradient(160deg, #1d5f55 0 34%, #76a96b 35% 58%, #d6bc6d 59% 100%);
+      }
+
+      .showcase-card:nth-child(2) .region-visual {
+        background:
+          radial-gradient(circle at 76% 24%, rgba(255, 233, 165, 0.88) 0 8%, transparent 9%),
+          linear-gradient(155deg, #7a4f42 0 32%, #c58947 33% 59%, #ecd08a 60% 100%);
       }
 
       .showcase-card::after {
@@ -402,12 +422,16 @@
         font-weight: 800;
       }
 
-      .character-top img {
-        align-self: stretch;
-        width: min(48%, 150px);
-        object-fit: contain;
-        object-position: right bottom;
-        filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.28));
+      .character-glyph {
+        width: 86px;
+        height: 86px;
+        flex: 0 0 auto;
+        border: 1px solid rgba(255, 254, 248, 0.56);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255, 254, 248, 0.92) 0 18%, transparent 19%),
+          conic-gradient(from 45deg, rgba(255, 255, 255, 0.65), transparent, rgba(255, 255, 255, 0.72), transparent, rgba(255, 255, 255, 0.65));
+        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.2);
       }
 
       .character-body {
@@ -520,7 +544,7 @@
           padding: 58px 24px;
         }
 
-        .hero-media {
+        .hero-art {
           min-height: 360px;
         }
 
@@ -608,15 +632,12 @@
             <a class="button secondary" href="#story">物語を追う</a>
           </div>
         </div>
-        <figure class="hero-media">
-          <img
-            src="https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Sumeru_Promotional_Video%EF%BD%9CGenshin_Impact/revision/latest?cb=20220811040404"
-            alt="原神のスメール地方プロモーション映像のキービジュアル">
+        <div class="hero-art" role="img" aria-label="森、砂漠、知恵の都市をイメージしたスメール風の抽象ビジュアル">
           <div class="art-label">
             <strong>Forest, Desert, Wisdom</strong>
-            <span>公式プロモーション映像由来のビジュアルを使い、雨林と砂漠が交差するスメールらしさを前面に出しています。</span>
+            <span>雨林の生命力、赤砂の遺跡、アカデミアの知識が交差する地域として構成しています。</span>
           </div>
-        </figure>
+        </div>
       </section>
 
       <section id="overview" aria-labelledby="overview-title">
@@ -651,18 +672,14 @@
           </div>
           <div class="showcase" aria-label="スメール地域ビジュアル">
             <figure class="showcase-card">
-              <img
-                src="https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Dharma_Forest_Event_Menu.png/revision/latest?cb=20220826012325"
-                alt="スメールのダルマフォレストの公式メニュー画像">
+              <div class="region-visual" role="img" aria-label="雨林エリアをイメージした抽象ビジュアル"></div>
               <figcaption class="showcase-caption">
                 <strong>Dharma Forest</strong>
                 <span>雨林、巨大樹、スメールシティ周辺の緑を印象づけるエリア。</span>
               </figcaption>
             </figure>
             <figure class="showcase-card">
-              <img
-                src="https://static.wikia.nocookie.net/gensin-impact/images/4/4e/Desert_of_Hadramaveth_Event_Menu.png/revision/latest?cb=20230118020439"
-                alt="スメール砂漠の公式イベントメニュー画像">
+              <div class="region-visual" role="img" aria-label="砂漠エリアをイメージした抽象ビジュアル"></div>
               <figcaption class="showcase-caption">
                 <strong>Great Red Sand</strong>
                 <span>赤砂、古代遺跡、キングデシェレトの伝承につながる舞台。</span>
@@ -684,7 +701,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>草神 / 知恵</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/b/be/Nahida_Profile.png/revision/latest?cb=20221030184248" alt="ナヒーダの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">ナヒーダ</span><span class="tag story">物語の中心</span></div>
@@ -695,7 +712,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>教令院 / 理性</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Alhaitham_Profile.png/revision/latest?cb=20230116143559" alt="アルハイゼンの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">アルハイゼン</span><span class="tag story">策士</span></div>
@@ -706,7 +723,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>大マハマトラ / 裁き</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/2/22/Cyno_Profile.png/revision/latest?cb=20221009201452" alt="セノの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">セノ</span><span class="tag sand">砂漠にも関係</span></div>
@@ -717,7 +734,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>劇場 / 芸術</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/b/b4/Nilou_Profile.png/revision/latest?cb=20221009201528" alt="ニィロウの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">ニィロウ</span><span class="tag story">夢と祭り</span></div>
@@ -728,7 +745,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>レンジャー / 森</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/1/1f/Tighnari_Profile.png/revision/latest?cb=20221009201551" alt="ティナリの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">ティナリ</span><span class="tag">コレイ</span></div>
@@ -739,7 +756,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>傭兵 / 砂漠</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/7e/Dehya_Profile.png/revision/latest?cb=20230301141616" alt="ディシアの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">ディシア</span><span class="tag">キャンディス</span></div>
@@ -750,7 +767,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>建築 / 理想</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Kaveh_Profile.png/revision/latest?cb=20230428130740" alt="カーヴェの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">カーヴェ</span><span class="tag story">後日談向き</span></div>
@@ -761,7 +778,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>商人 / 学者</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/8f/Collei_Profile.png/revision/latest?cb=20221009201450" alt="コレイの公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">ドリー</span><span class="tag">レイラ</span><span class="tag">ファルザン</span></div>
@@ -772,7 +789,7 @@
             <article class="character-card">
               <div class="character-top">
                 <span>放浪 / 記憶</span>
-                <img src="https://static.wikia.nocookie.net/gensin-impact/images/e/e2/Wanderer_Profile.png/revision/latest?cb=20221207060346" alt="放浪者の公式プロフィール画像">
+                <div class="character-glyph" aria-hidden="true"></div>
               </div>
               <div class="character-body">
                 <div class="meta"><span class="tag">放浪者</span><span class="tag story">世界樹</span></div>
@@ -879,8 +896,8 @@
       <div class="wrap">
         <p>このサイトは個人制作の非公式ファンガイドです。原神、Genshin Impact、各キャラクター名および関連名称は各権利者に帰属します。</p>
         <ul class="source-list">
-          <li>Reference: Genshin Impact Wiki - Sumeru / Playable Sumeru Characters / Sumeru Gallery</li>
-          <li>Visuals: HoYoverse official character profile and Sumeru event/promotional images hosted on Genshin Impact Wiki</li>
+          <li>Reference: Genshin Impact Wiki - Sumeru / Playable Sumeru Characters</li>
+          <li>Visuals: CSSで作成したスメール風の抽象ビジュアル</li>
         </ul>
       </div>
     </footer>
