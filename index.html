@@ -3,22 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="東京ディズニーシーのアトラクションを、楽しみ方やエリア別にまとめた非公式ガイドです。">
-    <title>東京ディズニーシー アトラクションガイド</title>
+    <meta name="description" content="原神のスメール地方について、主要キャラクターとストーリーをまとめた非公式ファンサイトです。">
+    <title>原神 スメール地方 キャラクター & ストーリーガイド</title>
     <style>
       :root {
         color-scheme: light;
-        --ink: #102027;
-        --muted: #586871;
-        --line: #d7e0df;
-        --paper: #fbfaf6;
-        --sea: #0d6472;
-        --deep: #083d4b;
-        --coral: #d85d4f;
-        --gold: #c7963d;
-        --mint: #dceee8;
-        --sky: #e7f2f4;
-        font-family: Inter, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
+        --ink: #17221d;
+        --muted: #65706a;
+        --paper: #fbfaf2;
+        --leaf: #2f7d58;
+        --deep: #183d3a;
+        --sand: #d8b46a;
+        --sun: #b76f34;
+        --violet: #66528f;
+        --blue: #1f6f83;
+        --line: rgba(23, 34, 29, 0.16);
+        --panel: #fffef8;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
       }
 
       * {
@@ -32,83 +33,13 @@
       body {
         margin: 0;
         color: var(--ink);
-        background: var(--paper);
+        background:
+          linear-gradient(180deg, rgba(47, 125, 88, 0.08), transparent 520px),
+          var(--paper);
       }
 
       a {
         color: inherit;
-      }
-
-      .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        border-bottom: 1px solid rgba(16, 32, 39, 0.12);
-        background: rgba(251, 250, 246, 0.92);
-        backdrop-filter: blur(14px);
-      }
-
-      .nav {
-        width: min(1120px, calc(100% - 32px));
-        margin: 0 auto;
-        min-height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-      }
-
-      .brand {
-        font-weight: 800;
-        letter-spacing: 0;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .nav-links a {
-        padding: 8px 10px;
-        border-radius: 999px;
-        color: var(--muted);
-        font-size: 0.92rem;
-        text-decoration: none;
-      }
-
-      .nav-links a:hover {
-        color: var(--deep);
-        background: var(--sky);
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
-        min-height: 620px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .hero-copy {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 28px;
-        padding: 72px max(32px, calc((100vw - 1120px) / 2)) 72px max(32px, calc((100vw - 1120px) / 2));
-      }
-
-      .eyebrow {
-        width: fit-content;
-        margin: 0;
-        padding: 7px 11px;
-        border: 1px solid rgba(13, 100, 114, 0.24);
-        border-radius: 999px;
-        color: var(--sea);
-        background: #ffffffb8;
-        font-size: 0.82rem;
-        font-weight: 700;
       }
 
       h1,
@@ -118,16 +49,86 @@
         margin: 0;
       }
 
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 242, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        width: min(1160px, calc(100% - 32px));
+        min-height: 64px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--deep);
+        background: rgba(47, 125, 88, 0.12);
+      }
+
+      .hero {
+        min-height: 680px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-copy {
+        padding: 82px max(28px, calc((100vw - 1160px) / 2)) 72px max(28px, calc((100vw - 1160px) / 2));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+      }
+
+      .eyebrow {
+        width: fit-content;
+        padding: 7px 11px;
+        border: 1px solid rgba(47, 125, 88, 0.28);
+        border-radius: 999px;
+        color: var(--leaf);
+        background: rgba(255, 254, 248, 0.78);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
       h1 {
-        max-width: 760px;
-        font-size: clamp(2.55rem, 6vw, 5.7rem);
-        line-height: 0.98;
+        max-width: 780px;
+        font-size: clamp(2.55rem, 6.4vw, 5.8rem);
+        line-height: 1;
       }
 
       .lead {
-        max-width: 620px;
+        max-width: 650px;
         color: var(--muted);
-        font-size: clamp(1.05rem, 2vw, 1.28rem);
+        font-size: clamp(1.04rem, 2vw, 1.26rem);
         line-height: 1.9;
       }
 
@@ -138,16 +139,16 @@
       }
 
       .button {
+        min-height: 44px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 44px;
         padding: 0 18px;
         border: 1px solid var(--deep);
         border-radius: 999px;
         background: var(--deep);
         color: white;
-        font-weight: 700;
+        font-weight: 800;
         text-decoration: none;
       }
 
@@ -158,34 +159,100 @@
 
       .hero-media {
         position: relative;
-        min-height: 480px;
         overflow: hidden;
-        background: #0c4555;
+        min-height: 520px;
+        background: #173c36;
       }
 
       .hero-media img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
         display: block;
-        filter: saturate(0.94) contrast(1.04);
+        object-fit: cover;
+        filter: saturate(1.08) contrast(1.03);
       }
 
       .hero-media::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(8, 61, 75, 0.05), rgba(8, 61, 75, 0.46));
+        background: linear-gradient(180deg, rgba(18, 48, 43, 0.02), rgba(18, 48, 43, 0.56));
       }
 
-      .photo-credit {
+      .art-label {
         position: absolute;
-        right: 16px;
-        bottom: 14px;
+        left: 24px;
+        bottom: 24px;
+        z-index: 2;
+        max-width: 360px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 8px;
+        color: white;
+        background: rgba(24, 61, 58, 0.72);
+        backdrop-filter: blur(10px);
+      }
+
+      .art-label strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1rem;
+      }
+
+      .art-label span {
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.65;
+        font-size: 0.9rem;
+      }
+
+      .showcase {
+        display: grid;
+        grid-template-columns: 1.35fr 0.85fr;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .showcase-card {
+        position: relative;
+        min-height: 280px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #102a27;
+      }
+
+      .showcase-card img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .showcase-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 35%, rgba(9, 26, 24, 0.76));
+      }
+
+      .showcase-caption {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
         z-index: 1;
         color: white;
-        font-size: 0.72rem;
-        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.48);
+      }
+
+      .showcase-caption strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .showcase-caption span {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.9rem;
+        line-height: 1.6;
       }
 
       section {
@@ -193,7 +260,7 @@
       }
 
       .wrap {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1160px, calc(100% - 32px));
         margin: 0 auto;
       }
 
@@ -206,198 +273,230 @@
       }
 
       h2 {
-        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-size: clamp(1.85rem, 4vw, 3.1rem);
         line-height: 1.12;
       }
 
       .section-note {
-        max-width: 520px;
+        max-width: 560px;
         color: var(--muted);
-        line-height: 1.75;
+        line-height: 1.8;
       }
 
-      .quick-grid,
-      .card-grid {
+      .overview-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 16px;
       }
 
-      .quick-card,
-      .attraction-card,
-      .port-card,
+      .overview-card,
+      .character-card,
+      .story-card,
+      .theme-card,
       .notice {
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: #fffefa;
+        background: var(--panel);
       }
 
-      .quick-card {
-        min-height: 164px;
+      .overview-card {
+        min-height: 170px;
         padding: 22px;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
       }
 
-      .quick-icon {
+      .mark {
         width: 44px;
         height: 44px;
         display: grid;
         place-items: center;
         border-radius: 50%;
         color: white;
-        background: var(--sea);
+        background: var(--leaf);
         font-weight: 900;
       }
 
-      .quick-card:nth-child(2) .quick-icon {
-        background: var(--coral);
+      .overview-card:nth-child(2) .mark {
+        background: var(--sand);
+        color: #3b2b11;
       }
 
-      .quick-card:nth-child(3) .quick-icon {
-        background: var(--gold);
+      .overview-card:nth-child(3) .mark {
+        background: var(--violet);
       }
 
-      .quick-card:nth-child(4) .quick-icon {
-        background: #5a7567;
+      .overview-card:nth-child(4) .mark {
+        background: var(--blue);
       }
 
-      .quick-card h3,
-      .attraction-card h3,
-      .port-card h3 {
+      .overview-card h3,
+      .character-card h3,
+      .story-card h3,
+      .theme-card h3 {
         font-size: 1.08rem;
         line-height: 1.35;
       }
 
-      .quick-card p,
-      .attraction-card p,
-      .port-card p,
+      .overview-card p,
+      .character-card p,
+      .story-card p,
+      .theme-card p,
       .notice p,
       .source-list {
         color: var(--muted);
-        line-height: 1.7;
+        line-height: 1.72;
       }
 
-      .attractions {
-        background: var(--sky);
+      .characters {
+        background:
+          linear-gradient(180deg, rgba(47, 125, 88, 0.12), rgba(216, 180, 106, 0.1)),
+          #f4f0df;
         border-block: 1px solid var(--line);
       }
 
-      .card-grid {
+      .character-grid {
+        display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .attraction-card {
-        min-height: 250px;
-        padding: 22px;
-        display: flex;
-        flex-direction: column;
         gap: 16px;
       }
 
-      .tags {
+      .character-card {
+        min-height: 260px;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .character-top {
+        min-height: 190px;
+        padding: 18px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+        background:
+          radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.88) 0 9%, transparent 10%),
+          linear-gradient(135deg, var(--leaf), #90a95c 56%, #dac173);
+      }
+
+      .character-card:nth-child(2n) .character-top {
+        background:
+          radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.88) 0 9%, transparent 10%),
+          linear-gradient(135deg, var(--violet), #517b8e 58%, #d8b46a);
+      }
+
+      .character-card:nth-child(3n) .character-top {
+        background:
+          radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.88) 0 9%, transparent 10%),
+          linear-gradient(135deg, #905a35, #d09a52 58%, #2f7d58);
+      }
+
+      .character-top span {
+        padding: 5px 9px;
+        border-radius: 999px;
+        color: #173021;
+        background: rgba(255, 254, 248, 0.78);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .character-top img {
+        align-self: stretch;
+        width: min(48%, 150px);
+        object-fit: contain;
+        object-position: right bottom;
+        filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.28));
+      }
+
+      .character-body {
+        padding: 20px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .meta {
+        display: flex;
         gap: 8px;
+        flex-wrap: wrap;
       }
 
       .tag {
         padding: 5px 9px;
         border-radius: 999px;
-        background: var(--mint);
-        color: #25574d;
+        background: rgba(47, 125, 88, 0.12);
+        color: #275f45;
         font-size: 0.78rem;
-        font-weight: 700;
+        font-weight: 800;
       }
 
-      .tag.hot {
-        background: #f9ded8;
-        color: #8b362e;
+      .tag.story {
+        background: rgba(102, 82, 143, 0.13);
+        color: #594479;
       }
 
-      .tag.calm {
-        background: #f1e6ca;
-        color: #72531e;
+      .tag.sand {
+        background: rgba(216, 180, 106, 0.22);
+        color: #755421;
       }
 
-      .port-grid {
+      .story-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        counter-reset: story;
+      }
+
+      .story-card {
+        position: relative;
+        min-height: 250px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
         gap: 14px;
       }
 
-      .port-card {
-        padding: 20px;
+      .story-card::before {
+        counter-increment: story;
+        content: "Act " counter(story);
+        width: fit-content;
+        padding: 5px 9px;
+        border-radius: 999px;
+        color: white;
+        background: var(--deep);
+        font-size: 0.74rem;
+        font-weight: 900;
+      }
+
+      .themes {
+        background: #f7f2e7;
+        border-top: 1px solid var(--line);
+      }
+
+      .theme-grid {
         display: grid;
-        grid-template-columns: 88px minmax(0, 1fr);
-        gap: 18px;
-        align-items: center;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
       }
 
-      .port-visual {
-        aspect-ratio: 1;
-        border-radius: 8px;
-        border: 1px solid rgba(16, 32, 39, 0.12);
-        background:
-          radial-gradient(circle at 58% 36%, rgba(255, 255, 255, 0.95) 0 11%, transparent 12%),
-          linear-gradient(135deg, var(--sea), #9abf9e 58%, #e9d8a6);
-      }
-
-      .port-card:nth-child(2) .port-visual {
-        background:
-          linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.7) 47% 52%, transparent 53%),
-          linear-gradient(135deg, #64748b, #b64e43 58%, #e7e0d4);
-      }
-
-      .port-card:nth-child(3) .port-visual {
-        background:
-          radial-gradient(circle at 42% 45%, rgba(255, 255, 255, 0.8) 0 12%, transparent 13%),
-          linear-gradient(135deg, #26667f, #93c5bd 55%, #d6edf0);
-      }
-
-      .port-card:nth-child(4) .port-visual {
-        background:
-          linear-gradient(45deg, transparent 43%, rgba(255, 255, 255, 0.72) 44% 50%, transparent 51%),
-          linear-gradient(135deg, #3b5f3a, #b76e44 60%, #ecd7a7);
-      }
-
-      .port-card:nth-child(5) .port-visual {
-        background:
-          radial-gradient(circle at 68% 28%, rgba(255, 255, 255, 0.88) 0 10%, transparent 11%),
-          linear-gradient(135deg, #6f7fd2, #d0a4c8 56%, #f2e3b6);
-      }
-
-      .port-card:nth-child(6) .port-visual {
-        background:
-          radial-gradient(circle at 36% 62%, rgba(255, 255, 255, 0.85) 0 12%, transparent 13%),
-          linear-gradient(135deg, #b6863f, #d9b467 54%, #7aa5a1);
-      }
-
-      .port-card:nth-child(7) .port-visual {
-        background:
-          radial-gradient(circle at 52% 44%, rgba(255, 255, 255, 0.85) 0 14%, transparent 15%),
-          linear-gradient(135deg, #187a82, #98c5d3 56%, #f3bfd1);
-      }
-
-      .port-card:nth-child(8) .port-visual {
-        background:
-          radial-gradient(circle at 54% 30%, #2e4f4f 0 18%, transparent 19%),
-          linear-gradient(135deg, #27313f, #7d6d55 56%, #d7b977);
+      .theme-card {
+        min-height: 220px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
       }
 
       .notice {
         margin-top: 28px;
         padding: 22px;
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 18px;
         align-items: center;
-      }
-
-      .source-list {
-        margin: 0;
-        padding-left: 1.2rem;
       }
 
       footer {
@@ -407,37 +506,52 @@
         font-size: 0.9rem;
       }
 
-      @media (max-width: 900px) {
+      .source-list {
+        margin: 10px 0 0;
+        padding-left: 1.2rem;
+      }
+
+      @media (max-width: 980px) {
         .hero {
           grid-template-columns: 1fr;
         }
 
         .hero-copy {
-          padding: 56px 24px;
+          padding: 58px 24px;
         }
 
         .hero-media {
-          min-height: 340px;
+          min-height: 360px;
         }
 
-        .quick-grid,
-        .card-grid {
+        .overview-grid,
+        .character-grid,
+        .theme-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .story-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .showcase {
+          grid-template-columns: 1fr;
         }
 
         .section-head,
         .notice {
-          align-items: start;
           grid-template-columns: 1fr;
+          align-items: start;
           flex-direction: column;
         }
       }
 
-      @media (max-width: 620px) {
+      @media (max-width: 640px) {
         .nav {
+          min-height: auto;
+          padding: 14px 0;
           align-items: flex-start;
           flex-direction: column;
-          padding: 14px 0;
           gap: 10px;
         }
 
@@ -445,18 +559,25 @@
           justify-content: flex-start;
         }
 
-        .quick-grid,
-        .card-grid,
-        .port-grid {
+        section {
+          padding: 52px 0;
+        }
+
+        .overview-grid,
+        .character-grid,
+        .story-grid,
+        .theme-grid {
           grid-template-columns: 1fr;
         }
 
-        .port-card {
-          grid-template-columns: 72px minmax(0, 1fr);
+        .art-label {
+          left: 16px;
+          right: 16px;
+          bottom: 16px;
         }
 
-        section {
-          padding: 52px 0;
+        .character-top {
+          min-height: 168px;
         }
       }
     </style>
@@ -464,12 +585,12 @@
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="サイト内ナビゲーション">
-        <a class="brand" href="#">DisneySea Attraction Guide</a>
+        <a class="brand" href="#">Sumeru Archive</a>
         <div class="nav-links">
-          <a href="#style">楽しみ方</a>
-          <a href="#pickups">注目アトラクション</a>
-          <a href="#ports">エリア別</a>
-          <a href="#info">確認先</a>
+          <a href="#overview">概要</a>
+          <a href="#characters">キャラクター</a>
+          <a href="#story">ストーリー</a>
+          <a href="#themes">テーマ</a>
         </div>
       </nav>
     </header>
@@ -477,179 +598,278 @@
     <main>
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="eyebrow">非公式ファンガイド / 情報確認日 2026.05.20</p>
-          <div>
-            <h1 id="page-title">東京ディズニーシーのアトラクションを旅の気分で選ぶ</h1>
-          </div>
+          <p class="eyebrow">非公式ファンサイト / 情報確認日 2026.05.20</p>
+          <h1 id="page-title">原神 スメール地方のキャラクターと物語</h1>
           <p class="lead">
-            スリル、物語、家族でのんびり、景色を楽しむ移動系まで。東京ディズニーシーの代表的なアトラクションを、初めてでも選びやすいようにまとめました。
+            知恵の国スメールを、森と砂漠、アカデミア、草神、旅人の出会いから整理するガイドです。未プレイの人にも見やすいように、概要とネタバレ寄りの要点を分けてまとめています。
           </p>
           <div class="hero-actions">
-            <a class="button" href="#pickups">注目をチェック</a>
-            <a class="button secondary" href="#ports">エリアから探す</a>
+            <a class="button" href="#characters">人物から見る</a>
+            <a class="button secondary" href="#story">物語を追う</a>
           </div>
         </div>
         <figure class="hero-media">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tokyo_DisneySea_Mediterranean_Harbour_View1_201306.jpg/1280px-Tokyo_DisneySea_Mediterranean_Harbour_View1_201306.jpg"
-            alt="東京ディズニーシーのメディテレーニアンハーバー">
-          <figcaption class="photo-credit">
-            Photo: Wing1990hk / CC BY 3.0
-          </figcaption>
+            src="https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Sumeru_Promotional_Video%EF%BD%9CGenshin_Impact/revision/latest?cb=20220811040404"
+            alt="原神のスメール地方プロモーション映像のキービジュアル">
+          <div class="art-label">
+            <strong>Forest, Desert, Wisdom</strong>
+            <span>公式プロモーション映像由来のビジュアルを使い、雨林と砂漠が交差するスメールらしさを前面に出しています。</span>
+          </div>
         </figure>
       </section>
 
-      <section id="style" aria-labelledby="style-title">
+      <section id="overview" aria-labelledby="overview-title">
         <div class="wrap">
           <div class="section-head">
-            <h2 id="style-title">気分で選ぶ</h2>
+            <h2 id="overview-title">スメールの見取り図</h2>
             <p class="section-note">
-              待ち時間やパスの対象状況は日によって変わります。ここでは、旅の予定を立てるときの大まかな選び方に絞っています。
+              スメールはテイワット七国のひとつで、草元素と知恵を中心に描かれる地域です。魔神任務 第三章の舞台で、雨林と砂漠の対比が物語にも探索にも強く効いています。
             </p>
           </div>
-          <div class="quick-grid">
-            <article class="quick-card">
-              <div class="quick-icon" aria-hidden="true">S</div>
-              <h3>スリルを楽しむ</h3>
-              <p>高低差、スピード、暗い演出が好きなら、火山や古代遺跡を舞台にしたライドが候補です。</p>
+          <div class="overview-grid">
+            <article class="overview-card">
+              <div class="mark" aria-hidden="true">草</div>
+              <h3>草神と知恵</h3>
+              <p>ナヒーダを中心に、知識を管理する仕組みと、人が自分で考えることの意味が描かれます。</p>
             </article>
-            <article class="quick-card">
-              <div class="quick-icon" aria-hidden="true">M</div>
-              <h3>物語に浸る</h3>
-              <p>映画や冒険の世界観をじっくり味わいたい日は、シアター型やボート型のアトラクションが合います。</p>
+            <article class="overview-card">
+              <div class="mark" aria-hidden="true">砂</div>
+              <h3>雨林と砂漠</h3>
+              <p>スメールシティ周辺の雨林、キングデシェレトの遺跡が残る砂漠が大きな軸です。</p>
             </article>
-            <article class="quick-card">
-              <div class="quick-icon" aria-hidden="true">F</div>
-              <h3>家族で乗りやすい</h3>
-              <p>小さな子ども連れなら、明るめの雰囲気や移動・周遊系を中心に組むと過ごしやすくなります。</p>
+            <article class="overview-card">
+              <div class="mark" aria-hidden="true">学</div>
+              <h3>教令院</h3>
+              <p>学術都市の中枢。研究、権威、情報統制がストーリーの緊張を生みます。</p>
             </article>
-            <article class="quick-card">
-              <div class="quick-icon" aria-hidden="true">V</div>
-              <h3>景色を楽しむ</h3>
-              <p>ゴンドラ、蒸気船、レールウェイは、休憩を兼ねながらパークの景観を楽しめます。</p>
+            <article class="overview-card">
+              <div class="mark" aria-hidden="true">夢</div>
+              <h3>夢と記憶</h3>
+              <p>アーカーシャ、世界樹、夢の世界など、目に見えない情報が物語の鍵になります。</p>
+            </article>
+          </div>
+          <div class="showcase" aria-label="スメール地域ビジュアル">
+            <figure class="showcase-card">
+              <img
+                src="https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Dharma_Forest_Event_Menu.png/revision/latest?cb=20220826012325"
+                alt="スメールのダルマフォレストの公式メニュー画像">
+              <figcaption class="showcase-caption">
+                <strong>Dharma Forest</strong>
+                <span>雨林、巨大樹、スメールシティ周辺の緑を印象づけるエリア。</span>
+              </figcaption>
+            </figure>
+            <figure class="showcase-card">
+              <img
+                src="https://static.wikia.nocookie.net/gensin-impact/images/4/4e/Desert_of_Hadramaveth_Event_Menu.png/revision/latest?cb=20230118020439"
+                alt="スメール砂漠の公式イベントメニュー画像">
+              <figcaption class="showcase-caption">
+                <strong>Great Red Sand</strong>
+                <span>赤砂、古代遺跡、キングデシェレトの伝承につながる舞台。</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="characters" id="characters" aria-labelledby="characters-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="characters-title">主要キャラクター</h2>
+            <p class="section-note">
+              プレイアブルのスメール関連キャラクターから、魔神任務や地域理解に関わりが深い人物を中心にまとめています。
+            </p>
+          </div>
+          <div class="character-grid">
+            <article class="character-card">
+              <div class="character-top">
+                <span>草神 / 知恵</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/b/be/Nahida_Profile.png/revision/latest?cb=20221030184248" alt="ナヒーダの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">ナヒーダ</span><span class="tag story">物語の中心</span></div>
+                <h3>小さなクラクサナリデビ</h3>
+                <p>スメールの草神。人々に近い視点を持ち、知識と夢をめぐる物語の核心に立つ存在です。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>教令院 / 理性</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Alhaitham_Profile.png/revision/latest?cb=20230116143559" alt="アルハイゼンの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">アルハイゼン</span><span class="tag story">策士</span></div>
+                <h3>アカデミアの書記官</h3>
+                <p>冷静な観察眼で状況を読み解く人物。スメール編では権力構造への切り込み役になります。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>大マハマトラ / 裁き</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/2/22/Cyno_Profile.png/revision/latest?cb=20221009201452" alt="セノの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">セノ</span><span class="tag sand">砂漠にも関係</span></div>
+                <h3>規律を執行する者</h3>
+                <p>学者を取り締まる大マハマトラ。厳格さと仲間への信頼が、物語後半で強く出ます。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>劇場 / 芸術</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/b/b4/Nilou_Profile.png/revision/latest?cb=20221009201528" alt="ニィロウの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">ニィロウ</span><span class="tag story">夢と祭り</span></div>
+                <h3>ズバイルシアターの踊り子</h3>
+                <p>サブゼルズ祭と強く結びつく人物。芸術が抑圧された都市の中で、人々の心を動かします。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>レンジャー / 森</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/1/1f/Tighnari_Profile.png/revision/latest?cb=20221009201551" alt="ティナリの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">ティナリ</span><span class="tag">コレイ</span></div>
+                <h3>アビディアの森を守る人々</h3>
+                <p>雨林側の入口を支えるレンジャーたち。死域、森の生態、スメールの日常を知る導入役です。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>傭兵 / 砂漠</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/7e/Dehya_Profile.png/revision/latest?cb=20230301141616" alt="ディシアの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">ディシア</span><span class="tag">キャンディス</span></div>
+                <h3>砂漠の人々の視点</h3>
+                <p>都市と砂漠の距離感を見せる人物たち。アアル村やエルマイト旅団の立場を理解しやすくします。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>建築 / 理想</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Kaveh_Profile.png/revision/latest?cb=20230428130740" alt="カーヴェの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">カーヴェ</span><span class="tag story">後日談向き</span></div>
+                <h3>理想を捨てない建築家</h3>
+                <p>本編後のスメール理解を深める人物。理想、生活、創作の苦さがキャラクター性に出ています。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>商人 / 学者</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/8f/Collei_Profile.png/revision/latest?cb=20221009201450" alt="コレイの公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">ドリー</span><span class="tag">レイラ</span><span class="tag">ファルザン</span></div>
+                <h3>スメールの日常を広げる面々</h3>
+                <p>商売、睡眠不足の学生、古典研究者など、教令院社会の横顔を見せてくれます。</p>
+              </div>
+            </article>
+            <article class="character-card">
+              <div class="character-top">
+                <span>放浪 / 記憶</span>
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/e/e2/Wanderer_Profile.png/revision/latest?cb=20221207060346" alt="放浪者の公式プロフィール画像">
+              </div>
+              <div class="character-body">
+                <div class="meta"><span class="tag">放浪者</span><span class="tag story">世界樹</span></div>
+                <h3>記憶を書き換える物語へ</h3>
+                <p>スメール後半から間章にかけて、世界樹と記憶のテーマを別角度から掘り下げる存在です。</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="attractions" id="pickups" aria-labelledby="pickups-title">
+      <section id="story" aria-labelledby="story-title">
         <div class="wrap">
           <div class="section-head">
-            <h2 id="pickups-title">注目アトラクション</h2>
+            <h2 id="story-title">ストーリーの流れ</h2>
             <p class="section-note">
-              代表的な体験をピックアップしています。利用制限、運営時間、休止情報は来園前に公式サイトで確認してください。
+              ここからは魔神任務 第三章の要約を含みます。未プレイなら、まず「概要」だけ読んでゲーム本編に進むのがおすすめです。
             </p>
           </div>
-          <div class="card-grid">
-            <article class="attraction-card">
-              <div class="tags"><span class="tag">メディテレーニアンハーバー</span><span class="tag calm">シアター型</span></div>
-              <h3>ソアリン：ファンタスティック・フライト</h3>
-              <p>空を飛ぶような視点で世界の名所をめぐる、没入感の高いシアタータイプ。初めての来園でも候補に入りやすい人気体験です。</p>
+          <div class="story-grid">
+            <article class="story-card">
+              <h3>雨林への到着</h3>
+              <p>旅人はスメールへ入り、ティナリやコレイと出会います。死域や草元素の仕組みを通じて、地域の異変が見え始めます。</p>
             </article>
-            <article class="attraction-card">
-              <div class="tags"><span class="tag">ミステリアスアイランド</span><span class="tag hot">スリル</span></div>
-              <h3>センター・オブ・ジ・アース</h3>
-              <p>火山内部を進む冒険ライド。暗さや急加速を含むため、スリル系を楽しみたい人向けです。</p>
+            <article class="story-card">
+              <h3>サブゼルズ祭</h3>
+              <p>スメールシティでニィロウたちの祭りに関わり、夢とアーカーシャをめぐる異常なループに巻き込まれます。</p>
             </article>
-            <article class="attraction-card">
-              <div class="tags"><span class="tag">アメリカンウォーターフロント</span><span class="tag hot">スリル</span></div>
-              <h3>タワー・オブ・テラー</h3>
-              <p>ホテルを舞台にした落下系アトラクション。演出の不気味さも含めて、強めの体験を求める人に向いています。</p>
+            <article class="story-card">
+              <h3>教令院の計画</h3>
+              <p>知識を支配する教令院の思惑が表面化し、ナヒーダの立場とスメールの統治構造が大きな問題になります。</p>
             </article>
-            <article class="attraction-card">
-              <div class="tags"><span class="tag">ロストリバーデルタ</span><span class="tag hot">冒険</span></div>
-              <h3>インディ・ジョーンズ・アドベンチャー</h3>
-              <p>遺跡探検の雰囲気を味わえるライド。揺れや暗い場面があるので、同行者の好みに合わせて選びたい一つです。</p>
+            <article class="story-card">
+              <h3>砂漠と過去</h3>
+              <p>アアル村や赤砂の遺跡を通して、都市と砂漠の分断、キングデシェレトとマハールッカデヴァータの記憶に触れます。</p>
             </article>
-            <article class="attraction-card">
-              <div class="tags"><span class="tag">ファンタジースプリングス</span><span class="tag calm">物語</span></div>
-              <h3>ラプンツェルのランタンフェスティバル</h3>
-              <p>ランタンのきらめきをたどるボートライド。映画の世界に入り込むような、穏やかな時間を楽しめます。</p>
-            </article>
-            <article class="attraction-card">
-              <div class="tags"><span class="tag">ファンタジースプリングス</span><span class="tag hot">冒険</span></div>
-              <h3>ピーターパンのネバーランドアドベンチャー</h3>
-              <p>ネバーランドの冒険を体験するライド。ファンタジースプリングスを中心に回る日の主役候補です。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="ports" aria-labelledby="ports-title">
-        <div class="wrap">
-          <div class="section-head">
-            <h2 id="ports-title">エリア別に見る</h2>
-            <p class="section-note">
-              東京ディズニーシーはテーマの異なるエリアで構成されています。移動の流れに合わせて近いエリアをまとめて回ると、予定を立てやすくなります。
-            </p>
-          </div>
-          <div class="port-grid">
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>メディテレーニアンハーバー</h3>
-                <p>ソアリン、ヴェネツィアン・ゴンドラ、トランジットスチーマーラインなど。</p>
-              </div>
-            </article>
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>アメリカンウォーターフロント</h3>
-                <p>タワー・オブ・テラー、タートル・トーク、エレクトリックレールウェイなど。</p>
-              </div>
-            </article>
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>ポートディスカバリー</h3>
-                <p>ニモ＆フレンズ・シーライダー、アクアトピアなど。</p>
-              </div>
-            </article>
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>ロストリバーデルタ</h3>
-                <p>インディ・ジョーンズ・アドベンチャー、レイジングスピリッツなど。</p>
-              </div>
-            </article>
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>ファンタジースプリングス</h3>
-                <p>ラプンツェル、ピーターパン、アナとエルサの物語を楽しめるエリア。</p>
-              </div>
-            </article>
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>アラビアンコースト</h3>
-                <p>シンドバッド、マジックランプシアター、キャラバンカルーセルなど。</p>
-              </div>
-            </article>
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>マーメイドラグーン</h3>
-                <p>屋内施設も多く、子ども連れや天候が気になる日にも組み込みやすいエリア。</p>
-              </div>
-            </article>
-            <article class="port-card">
-              <div class="port-visual" aria-hidden="true"></div>
-              <div>
-                <h3>ミステリアスアイランド</h3>
-                <p>センター・オブ・ジ・アース、海底2万マイルなど、冒険色の強いエリア。</p>
-              </div>
+            <article class="story-card">
+              <h3>知恵の解放</h3>
+              <p>仲間たちの作戦によって真相へ迫り、草神、世界樹、記憶の扱いがスメール編の結末を形づくります。</p>
             </article>
           </div>
 
-          <div class="notice" id="info">
+          <div class="notice">
             <div>
-              <h3>来園前の確認先</h3>
+              <h3>ネタバレを避けるなら</h3>
               <p>
-                運営時間、休止、ディズニー・プレミアアクセス、スタンバイパス、プライオリティパスの対象状況は変わります。最新情報は公式サイトと東京ディズニーリゾート・アプリで確認してください。
+                「ナヒーダ」「世界樹」「放浪者」に関する詳細は、魔神任務 第三章と間章を終えてから読むと体験を損ないにくいです。
               </p>
             </div>
-            <a class="button" href="https://www.tokyodisneyresort.jp/tds/attraction/" target="_blank" rel="noreferrer">公式一覧を見る</a>
+            <a class="button" href="#themes">テーマを見る</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="themes" id="themes" aria-labelledby="themes-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="themes-title">深掘りテーマ</h2>
+            <p class="section-note">
+              スメール編を振り返るときは、キャラクター単体だけでなく、地域の思想や仕組みごと見ると理解しやすくなります。
+            </p>
+          </div>
+          <div class="theme-grid">
+            <article class="theme-card">
+              <h3>知識は誰のものか</h3>
+              <p>アーカーシャは便利な知識基盤である一方、人々の判断や夢を奪う危うさも抱えています。</p>
+            </article>
+            <article class="theme-card">
+              <h3>神と人の距離</h3>
+              <p>ナヒーダは万能の支配者ではなく、人々を理解しようとする神として描かれます。</p>
+            </article>
+            <article class="theme-card">
+              <h3>都市と砂漠の断絶</h3>
+              <p>スメールシティの学術中心主義と、砂漠に暮らす人々の歴史が対立と和解の背景になります。</p>
+            </article>
+            <article class="theme-card">
+              <h3>夢と芸術</h3>
+              <p>ニィロウの祭りや演劇は、知識だけでは測れない価値を物語の中で示します。</p>
+            </article>
+            <article class="theme-card">
+              <h3>記憶と世界樹</h3>
+              <p>世界の記録が変わると、人々の認識も変わる。スメール編はこの設定を大きく前面に出します。</p>
+            </article>
+            <article class="theme-card">
+              <h3>仲間による作戦劇</h3>
+              <p>アルハイゼン、セノ、ディシア、ニィロウたちの役割分担が、終盤の面白さを支えています。</p>
+            </article>
+          </div>
+
+          <div class="notice">
+            <div>
+              <h3>出典と確認先</h3>
+              <p>
+                地域設定、実装キャラクター、魔神任務の情報は、公式ゲーム内情報と公開Wikiを参考に整理しています。今後の更新で解釈や関連キャラクターが増える可能性があります。
+              </p>
+            </div>
+            <a class="button" href="https://genshin-impact.fandom.com/wiki/Sumeru" target="_blank" rel="noreferrer">参考Wikiを見る</a>
           </div>
         </div>
       </section>
@@ -657,10 +877,10 @@
 
     <footer>
       <div class="wrap">
-        <p>このサイトは個人制作の非公式ガイドです。東京ディズニーリゾート、東京ディズニーシー、および各アトラクション名は各権利者に帰属します。</p>
+        <p>このサイトは個人制作の非公式ファンガイドです。原神、Genshin Impact、各キャラクター名および関連名称は各権利者に帰属します。</p>
         <ul class="source-list">
-          <li>Attraction information reference: Tokyo Disney Resort Official Website</li>
-          <li>Hero photo: Wing1990hk, Wikimedia Commons, CC BY 3.0</li>
+          <li>Reference: Genshin Impact Wiki - Sumeru / Playable Sumeru Characters / Sumeru Gallery</li>
+          <li>Visuals: HoYoverse official character profile and Sumeru event/promotional images hosted on Genshin Impact Wiki</li>
         </ul>
       </div>
     </footer>
