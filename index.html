@@ -3,45 +3,666 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Website</title>
+    <meta name="description" content="東京ディズニーシーのアトラクションを、楽しみ方やエリア別にまとめた非公式ガイドです。">
+    <title>東京ディズニーシー アトラクションガイド</title>
     <style>
       :root {
         color-scheme: light;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: #1f2937;
-        background: #f7f7f4;
+        --ink: #102027;
+        --muted: #586871;
+        --line: #d7e0df;
+        --paper: #fbfaf6;
+        --sea: #0d6472;
+        --deep: #083d4b;
+        --coral: #d85d4f;
+        --gold: #c7963d;
+        --mint: #dceee8;
+        --sky: #e7f2f4;
+        font-family: Inter, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
         margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
+        color: var(--ink);
+        background: var(--paper);
       }
 
-      main {
-        width: min(640px, calc(100% - 32px));
-        padding: 48px 0;
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(16, 32, 39, 0.12);
+        background: rgba(251, 250, 246, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--deep);
+        background: var(--sky);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        min-height: 620px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+        padding: 72px max(32px, calc((100vw - 1120px) / 2)) 72px max(32px, calc((100vw - 1120px) / 2));
+      }
+
+      .eyebrow {
+        width: fit-content;
+        margin: 0;
+        padding: 7px 11px;
+        border: 1px solid rgba(13, 100, 114, 0.24);
+        border-radius: 999px;
+        color: var(--sea);
+        background: #ffffffb8;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
       }
 
       h1 {
-        margin: 0 0 16px;
-        font-size: clamp(2rem, 6vw, 4rem);
-        line-height: 1.1;
+        max-width: 760px;
+        font-size: clamp(2.55rem, 6vw, 5.7rem);
+        line-height: 0.98;
       }
 
-      p {
+      .lead {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.28rem);
+        line-height: 1.9;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid var(--deep);
+        border-radius: 999px;
+        background: var(--deep);
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--deep);
+      }
+
+      .hero-media {
+        position: relative;
+        min-height: 480px;
+        overflow: hidden;
+        background: #0c4555;
+      }
+
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(0.94) contrast(1.04);
+      }
+
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(8, 61, 75, 0.05), rgba(8, 61, 75, 0.46));
+      }
+
+      .photo-credit {
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
+        z-index: 1;
+        color: white;
+        font-size: 0.72rem;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.48);
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      h2 {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        line-height: 1.12;
+      }
+
+      .section-note {
+        max-width: 520px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .quick-grid,
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .quick-card,
+      .attraction-card,
+      .port-card,
+      .notice {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fffefa;
+      }
+
+      .quick-card {
+        min-height: 164px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .quick-icon {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        color: white;
+        background: var(--sea);
+        font-weight: 900;
+      }
+
+      .quick-card:nth-child(2) .quick-icon {
+        background: var(--coral);
+      }
+
+      .quick-card:nth-child(3) .quick-icon {
+        background: var(--gold);
+      }
+
+      .quick-card:nth-child(4) .quick-icon {
+        background: #5a7567;
+      }
+
+      .quick-card h3,
+      .attraction-card h3,
+      .port-card h3 {
+        font-size: 1.08rem;
+        line-height: 1.35;
+      }
+
+      .quick-card p,
+      .attraction-card p,
+      .port-card p,
+      .notice p,
+      .source-list {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .attractions {
+        background: var(--sky);
+        border-block: 1px solid var(--line);
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .attraction-card {
+        min-height: 250px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: var(--mint);
+        color: #25574d;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .tag.hot {
+        background: #f9ded8;
+        color: #8b362e;
+      }
+
+      .tag.calm {
+        background: #f1e6ca;
+        color: #72531e;
+      }
+
+      .port-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .port-card {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .port-visual {
+        aspect-ratio: 1;
+        border-radius: 8px;
+        border: 1px solid rgba(16, 32, 39, 0.12);
+        background:
+          radial-gradient(circle at 58% 36%, rgba(255, 255, 255, 0.95) 0 11%, transparent 12%),
+          linear-gradient(135deg, var(--sea), #9abf9e 58%, #e9d8a6);
+      }
+
+      .port-card:nth-child(2) .port-visual {
+        background:
+          linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.7) 47% 52%, transparent 53%),
+          linear-gradient(135deg, #64748b, #b64e43 58%, #e7e0d4);
+      }
+
+      .port-card:nth-child(3) .port-visual {
+        background:
+          radial-gradient(circle at 42% 45%, rgba(255, 255, 255, 0.8) 0 12%, transparent 13%),
+          linear-gradient(135deg, #26667f, #93c5bd 55%, #d6edf0);
+      }
+
+      .port-card:nth-child(4) .port-visual {
+        background:
+          linear-gradient(45deg, transparent 43%, rgba(255, 255, 255, 0.72) 44% 50%, transparent 51%),
+          linear-gradient(135deg, #3b5f3a, #b76e44 60%, #ecd7a7);
+      }
+
+      .port-card:nth-child(5) .port-visual {
+        background:
+          radial-gradient(circle at 68% 28%, rgba(255, 255, 255, 0.88) 0 10%, transparent 11%),
+          linear-gradient(135deg, #6f7fd2, #d0a4c8 56%, #f2e3b6);
+      }
+
+      .port-card:nth-child(6) .port-visual {
+        background:
+          radial-gradient(circle at 36% 62%, rgba(255, 255, 255, 0.85) 0 12%, transparent 13%),
+          linear-gradient(135deg, #b6863f, #d9b467 54%, #7aa5a1);
+      }
+
+      .port-card:nth-child(7) .port-visual {
+        background:
+          radial-gradient(circle at 52% 44%, rgba(255, 255, 255, 0.85) 0 14%, transparent 15%),
+          linear-gradient(135deg, #187a82, #98c5d3 56%, #f3bfd1);
+      }
+
+      .port-card:nth-child(8) .port-visual {
+        background:
+          radial-gradient(circle at 54% 30%, #2e4f4f 0 18%, transparent 19%),
+          linear-gradient(135deg, #27313f, #7d6d55 56%, #d7b977);
+      }
+
+      .notice {
+        margin-top: 28px;
+        padding: 22px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .source-list {
         margin: 0;
-        color: #4b5563;
-        font-size: 1.125rem;
-        line-height: 1.8;
+        padding-left: 1.2rem;
+      }
+
+      footer {
+        padding: 36px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          padding: 56px 24px;
+        }
+
+        .hero-media {
+          min-height: 340px;
+        }
+
+        .quick-grid,
+        .card-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-head,
+        .notice {
+          align-items: start;
+          grid-template-columns: 1fr;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 14px 0;
+          gap: 10px;
+        }
+
+        .nav-links {
+          justify-content: flex-start;
+        }
+
+        .quick-grid,
+        .card-grid,
+        .port-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .port-card {
+          grid-template-columns: 72px minmax(0, 1fr);
+        }
+
+        section {
+          padding: 52px 0;
+        }
       }
     </style>
   </head>
   <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="サイト内ナビゲーション">
+        <a class="brand" href="#">DisneySea Attraction Guide</a>
+        <div class="nav-links">
+          <a href="#style">楽しみ方</a>
+          <a href="#pickups">注目アトラクション</a>
+          <a href="#ports">エリア別</a>
+          <a href="#info">確認先</a>
+        </div>
+      </nav>
+    </header>
+
     <main>
-      <h1>こんにちは</h1>
-      <p>これはGitHub Pagesで公開するシンプルなWebサイトです。</p>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">非公式ファンガイド / 情報確認日 2026.05.20</p>
+          <div>
+            <h1 id="page-title">東京ディズニーシーのアトラクションを旅の気分で選ぶ</h1>
+          </div>
+          <p class="lead">
+            スリル、物語、家族でのんびり、景色を楽しむ移動系まで。東京ディズニーシーの代表的なアトラクションを、初めてでも選びやすいようにまとめました。
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#pickups">注目をチェック</a>
+            <a class="button secondary" href="#ports">エリアから探す</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tokyo_DisneySea_Mediterranean_Harbour_View1_201306.jpg/1280px-Tokyo_DisneySea_Mediterranean_Harbour_View1_201306.jpg"
+            alt="東京ディズニーシーのメディテレーニアンハーバー">
+          <figcaption class="photo-credit">
+            Photo: Wing1990hk / CC BY 3.0
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="style" aria-labelledby="style-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="style-title">気分で選ぶ</h2>
+            <p class="section-note">
+              待ち時間やパスの対象状況は日によって変わります。ここでは、旅の予定を立てるときの大まかな選び方に絞っています。
+            </p>
+          </div>
+          <div class="quick-grid">
+            <article class="quick-card">
+              <div class="quick-icon" aria-hidden="true">S</div>
+              <h3>スリルを楽しむ</h3>
+              <p>高低差、スピード、暗い演出が好きなら、火山や古代遺跡を舞台にしたライドが候補です。</p>
+            </article>
+            <article class="quick-card">
+              <div class="quick-icon" aria-hidden="true">M</div>
+              <h3>物語に浸る</h3>
+              <p>映画や冒険の世界観をじっくり味わいたい日は、シアター型やボート型のアトラクションが合います。</p>
+            </article>
+            <article class="quick-card">
+              <div class="quick-icon" aria-hidden="true">F</div>
+              <h3>家族で乗りやすい</h3>
+              <p>小さな子ども連れなら、明るめの雰囲気や移動・周遊系を中心に組むと過ごしやすくなります。</p>
+            </article>
+            <article class="quick-card">
+              <div class="quick-icon" aria-hidden="true">V</div>
+              <h3>景色を楽しむ</h3>
+              <p>ゴンドラ、蒸気船、レールウェイは、休憩を兼ねながらパークの景観を楽しめます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="attractions" id="pickups" aria-labelledby="pickups-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="pickups-title">注目アトラクション</h2>
+            <p class="section-note">
+              代表的な体験をピックアップしています。利用制限、運営時間、休止情報は来園前に公式サイトで確認してください。
+            </p>
+          </div>
+          <div class="card-grid">
+            <article class="attraction-card">
+              <div class="tags"><span class="tag">メディテレーニアンハーバー</span><span class="tag calm">シアター型</span></div>
+              <h3>ソアリン：ファンタスティック・フライト</h3>
+              <p>空を飛ぶような視点で世界の名所をめぐる、没入感の高いシアタータイプ。初めての来園でも候補に入りやすい人気体験です。</p>
+            </article>
+            <article class="attraction-card">
+              <div class="tags"><span class="tag">ミステリアスアイランド</span><span class="tag hot">スリル</span></div>
+              <h3>センター・オブ・ジ・アース</h3>
+              <p>火山内部を進む冒険ライド。暗さや急加速を含むため、スリル系を楽しみたい人向けです。</p>
+            </article>
+            <article class="attraction-card">
+              <div class="tags"><span class="tag">アメリカンウォーターフロント</span><span class="tag hot">スリル</span></div>
+              <h3>タワー・オブ・テラー</h3>
+              <p>ホテルを舞台にした落下系アトラクション。演出の不気味さも含めて、強めの体験を求める人に向いています。</p>
+            </article>
+            <article class="attraction-card">
+              <div class="tags"><span class="tag">ロストリバーデルタ</span><span class="tag hot">冒険</span></div>
+              <h3>インディ・ジョーンズ・アドベンチャー</h3>
+              <p>遺跡探検の雰囲気を味わえるライド。揺れや暗い場面があるので、同行者の好みに合わせて選びたい一つです。</p>
+            </article>
+            <article class="attraction-card">
+              <div class="tags"><span class="tag">ファンタジースプリングス</span><span class="tag calm">物語</span></div>
+              <h3>ラプンツェルのランタンフェスティバル</h3>
+              <p>ランタンのきらめきをたどるボートライド。映画の世界に入り込むような、穏やかな時間を楽しめます。</p>
+            </article>
+            <article class="attraction-card">
+              <div class="tags"><span class="tag">ファンタジースプリングス</span><span class="tag hot">冒険</span></div>
+              <h3>ピーターパンのネバーランドアドベンチャー</h3>
+              <p>ネバーランドの冒険を体験するライド。ファンタジースプリングスを中心に回る日の主役候補です。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ports" aria-labelledby="ports-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="ports-title">エリア別に見る</h2>
+            <p class="section-note">
+              東京ディズニーシーはテーマの異なるエリアで構成されています。移動の流れに合わせて近いエリアをまとめて回ると、予定を立てやすくなります。
+            </p>
+          </div>
+          <div class="port-grid">
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>メディテレーニアンハーバー</h3>
+                <p>ソアリン、ヴェネツィアン・ゴンドラ、トランジットスチーマーラインなど。</p>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>アメリカンウォーターフロント</h3>
+                <p>タワー・オブ・テラー、タートル・トーク、エレクトリックレールウェイなど。</p>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>ポートディスカバリー</h3>
+                <p>ニモ＆フレンズ・シーライダー、アクアトピアなど。</p>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>ロストリバーデルタ</h3>
+                <p>インディ・ジョーンズ・アドベンチャー、レイジングスピリッツなど。</p>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>ファンタジースプリングス</h3>
+                <p>ラプンツェル、ピーターパン、アナとエルサの物語を楽しめるエリア。</p>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>アラビアンコースト</h3>
+                <p>シンドバッド、マジックランプシアター、キャラバンカルーセルなど。</p>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>マーメイドラグーン</h3>
+                <p>屋内施設も多く、子ども連れや天候が気になる日にも組み込みやすいエリア。</p>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="port-visual" aria-hidden="true"></div>
+              <div>
+                <h3>ミステリアスアイランド</h3>
+                <p>センター・オブ・ジ・アース、海底2万マイルなど、冒険色の強いエリア。</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="notice" id="info">
+            <div>
+              <h3>来園前の確認先</h3>
+              <p>
+                運営時間、休止、ディズニー・プレミアアクセス、スタンバイパス、プライオリティパスの対象状況は変わります。最新情報は公式サイトと東京ディズニーリゾート・アプリで確認してください。
+              </p>
+            </div>
+            <a class="button" href="https://www.tokyodisneyresort.jp/tds/attraction/" target="_blank" rel="noreferrer">公式一覧を見る</a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="wrap">
+        <p>このサイトは個人制作の非公式ガイドです。東京ディズニーリゾート、東京ディズニーシー、および各アトラクション名は各権利者に帰属します。</p>
+        <ul class="source-list">
+          <li>Attraction information reference: Tokyo Disney Resort Official Website</li>
+          <li>Hero photo: Wing1990hk, Wikimedia Commons, CC BY 3.0</li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
