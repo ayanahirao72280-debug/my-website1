@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="映画ドラえもん 2012-2026 の各作品をポートフォリオ風に整理した概要ページです。">
+    <title>作品詳細 | 映画ドラえもんポートフォリオ</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #14202b;
+        --muted: #637182;
+        --paper: #fbfcff;
+        --panel: #ffffff;
+        --blue: #0877c9;
+        --sky: #d8f0ff;
+        --red: #df3f3f;
+        --yellow: #f6c447;
+        --green: #24946d;
+        --navy: #12334e;
+        --line: rgba(20, 32, 43, 0.14);
+        --shadow: 0 18px 50px rgba(18, 51, 78, 0.12);
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, rgba(216, 240, 255, 0.85), rgba(251, 252, 255, 0) 520px),
+          var(--paper);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      figure {
+        margin: 0;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 252, 255, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav,
+      .wrap {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--navy);
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        border: 3px solid var(--blue);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 78%, var(--yellow) 0 12%, transparent 13%),
+          linear-gradient(180deg, #fff 0 48%, var(--red) 49% 58%, #fff 59% 100%);
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--blue);
+        background: rgba(8, 119, 201, 0.1);
+      }
+
+      main {
+        padding: 58px 0 72px;
+      }
+
+      .detail-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .poster-panel,
+      .detail-panel,
+      .related-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .poster-panel {
+        overflow: hidden;
+      }
+
+      .poster-panel img {
+        width: 100%;
+        min-height: 520px;
+        display: block;
+        object-fit: cover;
+      }
+
+      .poster-fallback {
+        min-height: 520px;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+        color: var(--muted);
+        background: #fff;
+        text-align: center;
+      }
+
+      .poster-fallback strong {
+        display: block;
+        color: var(--navy);
+        font-size: 1.3rem;
+        line-height: 1.4;
+      }
+
+      .poster-fallback span {
+        display: block;
+        margin-top: 8px;
+        line-height: 1.7;
+      }
+
+      .detail-panel {
+        padding: 30px;
+      }
+
+      .eyebrow {
+        width: fit-content;
+        padding: 7px 11px;
+        border: 1px solid rgba(8, 119, 201, 0.25);
+        border-radius: 999px;
+        color: var(--blue);
+        background: rgba(255, 255, 255, 0.82);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      h1 {
+        margin-top: 18px;
+        color: var(--navy);
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1.08;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
+      }
+
+      .lead {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 1.06rem;
+        line-height: 1.86;
+      }
+
+      .meta {
+        margin-top: 22px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: rgba(8, 119, 201, 0.1);
+        color: #0865a9;
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+
+      .tag.red {
+        background: rgba(223, 63, 63, 0.1);
+        color: #b33131;
+      }
+
+      .tag.green {
+        background: rgba(36, 148, 109, 0.12);
+        color: #1e7457;
+      }
+
+      .info-grid {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .info-item {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .info-item span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+
+      .info-item strong {
+        display: block;
+        margin-top: 5px;
+        color: var(--navy);
+        line-height: 1.45;
+      }
+
+      .section-block {
+        margin-top: 28px;
+      }
+
+      .section-block h2 {
+        color: var(--navy);
+        font-size: 1.2rem;
+      }
+
+      .section-block p,
+      .point-list {
+        margin-top: 12px;
+        color: var(--muted);
+        line-height: 1.76;
+      }
+
+      .point-list {
+        padding-left: 1.2rem;
+      }
+
+      .actions {
+        margin-top: 30px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border: 1px solid var(--blue);
+        border-radius: 999px;
+        background: var(--blue);
+        color: white;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        background: white;
+        color: var(--blue);
+      }
+
+      .related-grid {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .related-card {
+        padding: 18px;
+        color: inherit;
+        text-decoration: none;
+        box-shadow: 0 10px 30px rgba(18, 51, 78, 0.07);
+      }
+
+      .related-card:hover {
+        border-color: rgba(8, 119, 201, 0.45);
+      }
+
+      .related-card span {
+        color: var(--blue);
+        font-size: 0.82rem;
+        font-weight: 900;
+      }
+
+      .related-card strong {
+        display: block;
+        margin-top: 6px;
+        color: var(--navy);
+        line-height: 1.42;
+      }
+
+      footer {
+        padding: 36px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .detail-layout,
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .poster-panel img,
+        .poster-fallback {
+          min-height: 360px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          min-height: auto;
+          padding: 14px 0;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .nav-links {
+          justify-content: flex-start;
+        }
+
+        main {
+          padding: 36px 0 52px;
+        }
+
+        .detail-panel {
+          padding: 22px;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="サイト内ナビゲーション">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>映画ドラえもんポートフォリオ</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#overview">企画概要</a>
+          <a href="index.html#timeline">作品一覧</a>
+          <a href="index.html#themes">整理メモ</a>
+          <a href="index.html#guide">見方</a>
+          <a href="characters.html">キャラクター</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <div class="detail-layout">
+          <figure class="poster-panel" id="poster-panel"></figure>
+
+          <section class="detail-panel" aria-labelledby="movie-title">
+            <p class="eyebrow" id="movie-year"></p>
+            <h1 id="movie-title"></h1>
+            <p class="lead" id="movie-lead"></p>
+            <div class="meta" id="movie-tags"></div>
+
+            <div class="info-grid">
+              <div class="info-item">
+                <span>公開年</span>
+                <strong id="info-year"></strong>
+              </div>
+              <div class="info-item">
+                <span>分類</span>
+                <strong id="info-type"></strong>
+              </div>
+              <div class="info-item">
+                <span>舞台</span>
+                <strong id="info-stage"></strong>
+              </div>
+              <div class="info-item">
+                <span>入り口</span>
+                <strong id="info-entry"></strong>
+              </div>
+            </div>
+
+            <div class="section-block">
+              <h2>概要</h2>
+              <p id="movie-summary"></p>
+            </div>
+
+            <div class="section-block">
+              <h2>見どころ</h2>
+              <ul class="point-list" id="movie-points"></ul>
+            </div>
+
+            <div class="actions">
+              <a class="button" href="index.html#timeline">作品一覧へ戻る</a>
+              <a class="button secondary" id="official-link" href="https://doraeiga.com/link/" target="_blank" rel="noreferrer">公式情報を見る</a>
+            </div>
+          </section>
+        </div>
+
+        <div class="related-grid" id="related-grid" aria-label="前後の作品"></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>非公式ファンサイト / 作品画像は公式サイト掲載画像を参照 / ドラえもん、映画タイトル、関連名称は各権利者に帰属します。</p>
+      </div>
+    </footer>
+
+    <script>
+      const movies = [
+        {
+          id: "2026",
+          year: "2026",
+          title: "映画ドラえもん 新・のび太の海底鬼岩城",
+          type: "リメイク / 最新作",
+          stage: "海底",
+          entry: "大きな冒険感から入りたい人向け",
+          tags: ["海底", "最新作", "リメイク"],
+          image: "https://doraeiga.com/2026/images/og0227.jpg",
+          alt: "『映画ドラえもん 新・のび太の海底鬼岩城』公式ビジュアル",
+          lead: "海底キャンプから始まる、海の底のスケールを味わえる冒険です。",
+          summary: "ムー連邦や鬼岩城をめぐる海底冒険を、近年作として楽しめる作品です。ドラえもん映画らしい未知の世界への入り口と、仲間で危機へ向かう流れを見やすく整理できます。",
+          points: ["海底という舞台の広さが分かりやすい", "旧作を知っている人はリメイクの違いも楽しめる", "最新作として近年のシリーズを追い始めやすい"],
+          official: "https://doraeiga.com/2026/"
+        },
+        {
+          id: "2025",
+          year: "2025",
+          title: "映画ドラえもん のび太の絵世界物語",
+          type: "オリジナル",
+          stage: "絵の中の世界",
+          entry: "ファンタジーが好きな人向け",
+          tags: ["絵画", "ファンタジー", "創作"],
+          image: "https://doraeiga.com/eximages/2025/images_new/og07xx.jpg",
+          alt: "『映画ドラえもん のび太の絵世界物語』公式ビジュアル",
+          lead: "絵の中の世界へ入り込む、創作と冒険をつなぐファンタジーです。",
+          summary: "描かれた世界を舞台に、想像する楽しさと冒険のワクワク感を合わせて見られる作品です。物語世界そのものを旅するタイプなので、近年作の中でもファンタジー色が強い入口になります。",
+          points: ["絵の世界という設定が分かりやすい", "創作や美術のモチーフを楽しめる", "明るいファンタジーとして選びやすい"],
+          official: "https://doraeiga.com/2025/"
+        },
+        {
+          id: "2024",
+          year: "2024",
+          title: "映画ドラえもん のび太の地球交響楽",
+          type: "オリジナル",
+          stage: "音楽と地球",
+          entry: "音楽テーマが好きな人向け",
+          tags: ["音楽", "地球", "仲間"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p42.jpg",
+          alt: "『映画ドラえもん のび太の地球交響楽』のポスター",
+          lead: "音楽が消える危機に立ち向かう、演奏と友情の物語です。",
+          summary: "リコーダーや演奏が冒険の力として描かれ、音楽を通じて仲間とつながる流れを楽しめます。作品選びでは、戦いや探検だけでなくテーマ性も見たいときに向いています。",
+          points: ["音楽が物語の中心にある", "仲間と合わせる楽しさが伝わる", "地球規模の危機と身近な演奏がつながる"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2023",
+          year: "2023",
+          title: "映画ドラえもん のび太と空の理想郷",
+          type: "オリジナル",
+          stage: "空の理想郷",
+          entry: "少しミステリーも見たい人向け",
+          tags: ["空", "理想郷", "友情"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p41.jpg",
+          alt: "『映画ドラえもん のび太と空の理想郷』のポスター",
+          lead: "空に浮かぶ理想郷を探し、完璧に見える世界の裏側へ近づく冒険です。",
+          summary: "楽園のような場所をめぐる冒険でありながら、理想や完璧さについて考えられる作品です。空を旅する開放感と、少しずつ真相が見えてくる流れが見どころです。",
+          points: ["空の冒険として映像の広がりがある", "理想の世界というテーマが分かりやすい", "友情と疑問が物語を動かす"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2022",
+          year: "2022",
+          title: "映画ドラえもん のび太の宇宙小戦争 2021",
+          type: "リメイク",
+          stage: "宇宙",
+          entry: "友情を中心に見たい人向け",
+          tags: ["宇宙", "友情", "リメイク"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p40.jpg",
+          alt: "『映画ドラえもん のび太の宇宙小戦争 2021』のポスター",
+          lead: "小さな宇宙人パピとの出会いから始まる、仲間を守る宇宙冒険です。",
+          summary: "体の大きさや立場の違いを越えて、友だちを守ろうとする気持ちが中心になります。宇宙を舞台にしつつ、近くにいる相手を大切にする物語として入りやすい作品です。",
+          points: ["小さな仲間を守る構図が分かりやすい", "宇宙冒険と友情が両方楽しめる", "旧作の再構成としても見られる"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2021",
+          year: "2021",
+          title: "新作劇場公開なし",
+          type: "整理メモ",
+          stage: "公開なし",
+          entry: "年表の空白を確認したい人向け",
+          tags: ["公開なし", "整理メモ"],
+          image: "",
+          alt: "",
+          lead: "この年は新作の劇場公開がなかったため、年表上の空白として整理しています。",
+          summary: "2012年から2026年までを続けて見るとき、2021年は新作劇場公開がない年として扱います。前後の作品の公開時期やシリーズの流れを確認するためのメモページです。",
+          points: ["2020年作品と2022年作品の間の空白を整理できる", "『宇宙小戦争 2021』はこのサイトでは2022年公開作品として扱う", "年表全体の流れを追うための補助情報"],
+          official: "https://doraeiga.com/link/"
+        },
+        {
+          id: "2020",
+          year: "2020",
+          title: "映画ドラえもん のび太の新恐竜",
+          type: "オリジナル",
+          stage: "恐竜",
+          entry: "出会いと別れを見たい人向け",
+          tags: ["恐竜", "新作物語", "成長"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p39.jpg",
+          alt: "『映画ドラえもん のび太の新恐竜』のポスター",
+          lead: "双子の恐竜キューとミューとの出会いを描く、育てる責任と別れの物語です。",
+          summary: "恐竜との出会いをきっかけに、のび太が相手を思って行動する姿が描かれます。かわいさだけでなく、守ることや送り出すことまで含めて見られる作品です。",
+          points: ["恐竜モチーフで入りやすい", "のび太の成長が分かりやすい", "出会いと別れの余韻がある"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2019",
+          year: "2019",
+          title: "映画ドラえもん のび太の月面探査記",
+          type: "オリジナル",
+          stage: "月",
+          entry: "想像力のテーマが好きな人向け",
+          tags: ["月", "想像力", "友情"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p38.jpg",
+          alt: "『映画ドラえもん のび太の月面探査記』のポスター",
+          lead: "月の裏側と想像力をめぐる、見えないものを信じる気持ちの冒険です。",
+          summary: "月という身近で遠い場所を舞台に、想像が世界を広げる楽しさを描きます。冒険のスケールと、信じる気持ちのテーマがまとまった作品です。",
+          points: ["月面という舞台が印象的", "想像力が物語の核になっている", "友情と未知の世界のバランスが見やすい"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2018",
+          year: "2018",
+          title: "映画ドラえもん のび太の宝島",
+          type: "オリジナル",
+          stage: "海と宝島",
+          entry: "王道の冒険感を味わいたい人向け",
+          tags: ["宝島", "海賊", "家族"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p37.jpg",
+          alt: "『映画ドラえもん のび太の宝島』のポスター",
+          lead: "宝島を目指す船旅と、家族や仲間のテーマが重なる海洋冒険です。",
+          summary: "海賊や宝探しのワクワク感を軸に、家族や仲間との関係も描かれます。近年作の中でも冒険映画らしい勢いを強く感じやすい作品です。",
+          points: ["船旅と宝探しの分かりやすい楽しさ", "家族のテーマが物語に厚みを出す", "テンポのよい冒険作として選びやすい"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2017",
+          year: "2017",
+          title: "映画ドラえもん のび太の南極カチコチ大冒険",
+          type: "オリジナル",
+          stage: "南極",
+          entry: "謎解き感のある冒険が好きな人向け",
+          tags: ["南極", "氷", "古代文明"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p36.jpg",
+          alt: "『映画ドラえもん のび太の南極カチコチ大冒険』のポスター",
+          lead: "南極の氷の世界で、古代文明やリングをめぐる謎が広がる冒険です。",
+          summary: "寒さと氷のビジュアルが印象的で、謎を追いながら未知の文明へ近づいていく作品です。探検気分とミステリー性を合わせて楽しめます。",
+          points: ["氷の世界の雰囲気が強い", "謎を追う展開が見やすい", "南極という舞台で冒険感が出る"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2016",
+          year: "2016",
+          title: "映画ドラえもん 新・のび太の日本誕生",
+          type: "リメイク",
+          stage: "原始時代",
+          entry: "仲間で暮らしを作る話が好きな人向け",
+          tags: ["原始時代", "リメイク", "仲間"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p35.jpg",
+          alt: "『映画ドラえもん 新・のび太の日本誕生』のポスター",
+          lead: "7万年前の日本を舞台に、仲間と新しい居場所を作る大冒険です。",
+          summary: "原始時代へ向かうスケールの大きさと、仲間で生活を作っていく楽しさがあります。リメイク作品として、昔の名作を近年の見やすさで楽しめる入口です。",
+          points: ["原始時代の設定が分かりやすい", "仲間との共同生活の楽しさがある", "リメイク入門として選びやすい"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2015",
+          year: "2015",
+          title: "映画ドラえもん のび太の宇宙英雄記",
+          type: "オリジナル",
+          stage: "宇宙",
+          entry: "ヒーローものが好きな人向け",
+          tags: ["宇宙", "ヒーロー", "成長"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p34.jpg",
+          alt: "『映画ドラえもん のび太の宇宙英雄記』のポスター",
+          lead: "ヒーロー映画ごっこから本物の宇宙冒険へ広がる作品です。",
+          summary: "役になりきる遊びが、本当の危機に向き合う冒険へ変わっていきます。ヒーローものの分かりやすい楽しさと、仲間それぞれの役割が見どころです。",
+          points: ["ヒーローごっこの楽しさから入りやすい", "宇宙冒険としてのスケールがある", "それぞれの得意さが活きる"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2014",
+          year: "2014",
+          title: "映画ドラえもん 新・のび太の大魔境",
+          type: "リメイク",
+          stage: "秘境",
+          entry: "ジャングル冒険が好きな人向け",
+          tags: ["秘境", "リメイク", "王国"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p33.jpg",
+          alt: "『映画ドラえもん 新・のび太の大魔境』のポスター",
+          lead: "未知のジャングルと王国をめぐる、仲間を信じる冒険です。",
+          summary: "秘境探検のワクワク感と、ペコとの関係を通じた友情の物語が中心です。リメイク作品として、クラシックな冒険を現代的に見られます。",
+          points: ["ジャングルと王国の冒険感がある", "ペコとの関係が物語を支える", "王道の探検ものとして入りやすい"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2013",
+          year: "2013",
+          title: "映画ドラえもん のび太のひみつ道具博物館",
+          type: "オリジナル",
+          stage: "ひみつ道具博物館",
+          entry: "ひみつ道具が好きな人向け",
+          tags: ["ひみつ道具", "博物館", "ミステリー"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p32.jpg",
+          alt: "『映画ドラえもん のび太のひみつ道具博物館』のポスター",
+          lead: "ひみつ道具の博物館を舞台にした、道具好きに楽しいミステリーです。",
+          summary: "ドラえもんらしさの中心にあるひみつ道具が、物語の舞台そのものになります。道具を見る楽しさと事件を追う流れがあり、シリーズの入口としても分かりやすい作品です。",
+          points: ["ひみつ道具がたくさん出る楽しさ", "博物館という舞台が見やすい", "ミステリー要素で先が気になる"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        },
+        {
+          id: "2012",
+          year: "2012",
+          title: "映画ドラえもん のび太と奇跡の島",
+          type: "オリジナル",
+          stage: "島",
+          entry: "自然や家族テーマが好きな人向け",
+          tags: ["島", "動物", "家族"],
+          image: "https://doraeiga.com/eximages/2025/45thmatsuri/detail_p31.jpg",
+          alt: "『映画ドラえもん のび太と奇跡の島』のポスター",
+          lead: "絶滅動物が暮らす島を舞台に、自然や家族をめぐるテーマを描く作品です。",
+          summary: "島という閉じた舞台の中で、自然や命、家族への思いが描かれます。2012年からの流れを追うときの出発点として見やすい作品です。",
+          points: ["絶滅動物が暮らす島という設定", "自然を守るテーマが分かりやすい", "家族の物語としても見られる"],
+          official: "https://doraeiga.com/2025/45thmatsuri/"
+        }
+      ];
+
+      const movieMap = new Map(movies.map((movie) => [movie.id, movie]));
+      const params = new URLSearchParams(window.location.search);
+      const selected = movieMap.get(params.get("id")) || movies[0];
+      const selectedIndex = movies.findIndex((movie) => movie.id === selected.id);
+
+      document.title = `${selected.title} | 映画ドラえもんポートフォリオ`;
+      document.getElementById("movie-year").textContent = `${selected.year} / 作品詳細`;
+      document.getElementById("movie-title").textContent = selected.title;
+      document.getElementById("movie-lead").textContent = selected.lead;
+      document.getElementById("movie-summary").textContent = selected.summary;
+      document.getElementById("info-year").textContent = selected.year;
+      document.getElementById("info-type").textContent = selected.type;
+      document.getElementById("info-stage").textContent = selected.stage;
+      document.getElementById("info-entry").textContent = selected.entry;
+      document.getElementById("official-link").href = selected.official;
+
+      const posterPanel = document.getElementById("poster-panel");
+      if (selected.image) {
+        const image = document.createElement("img");
+        image.src = selected.image;
+        image.alt = selected.alt;
+        image.loading = "lazy";
+        posterPanel.append(image);
+      } else {
+        const fallback = document.createElement("div");
+        fallback.className = "poster-fallback";
+        fallback.innerHTML = "<strong>公式画像なし</strong><span>この年は新作劇場公開なしの整理メモです。</span>";
+        posterPanel.append(fallback);
+      }
+
+      const tags = document.getElementById("movie-tags");
+      selected.tags.forEach((tag, index) => {
+        const item = document.createElement("span");
+        item.className = index === 1 ? "tag red" : index === 2 ? "tag green" : "tag";
+        item.textContent = tag;
+        tags.append(item);
+      });
+
+      const points = document.getElementById("movie-points");
+      selected.points.forEach((point) => {
+        const item = document.createElement("li");
+        item.textContent = point;
+        points.append(item);
+      });
+
+      const related = document.getElementById("related-grid");
+      [movies[selectedIndex - 1], movies[selectedIndex + 1]].filter(Boolean).forEach((movie) => {
+        const card = document.createElement("a");
+        card.className = "related-card";
+        card.href = `movie.html?id=${movie.id}`;
+        card.innerHTML = `<span>${movie.year}</span><strong>${movie.title}</strong>`;
+        related.append(card);
+      });
+    </script>
+  </body>
+</html>
