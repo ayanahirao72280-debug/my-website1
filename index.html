@@ -3,22 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="原神のスメール地方について、主要キャラクターとストーリーをまとめた非公式ファンサイトです。">
-    <title>原神 スメール地方 キャラクター & ストーリーガイド</title>
+    <meta name="description" content="2012年から2026年までの映画ドラえもんを、年表・テーマ・見どころで整理した非公式ファンサイトです。">
+    <title>映画ドラえもん 15年アーカイブ 2012-2026</title>
     <style>
       :root {
         color-scheme: light;
-        --ink: #17221d;
-        --muted: #65706a;
-        --paper: #fbfaf2;
-        --leaf: #2f7d58;
-        --deep: #183d3a;
-        --sand: #d8b46a;
-        --sun: #b76f34;
-        --violet: #66528f;
-        --blue: #1f6f83;
-        --line: rgba(23, 34, 29, 0.16);
-        --panel: #fffef8;
+        --ink: #14202b;
+        --muted: #637182;
+        --paper: #fbfcff;
+        --panel: #ffffff;
+        --blue: #0877c9;
+        --sky: #d8f0ff;
+        --red: #df3f3f;
+        --yellow: #f6c447;
+        --green: #24946d;
+        --navy: #12334e;
+        --line: rgba(20, 32, 43, 0.14);
+        --shadow: 0 18px 50px rgba(18, 51, 78, 0.12);
         font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
       }
 
@@ -34,7 +35,7 @@
         margin: 0;
         color: var(--ink);
         background:
-          linear-gradient(180deg, rgba(47, 125, 88, 0.08), transparent 520px),
+          linear-gradient(180deg, rgba(216, 240, 255, 0.85), rgba(251, 252, 255, 0) 560px),
           var(--paper);
       }
 
@@ -45,38 +46,57 @@
       h1,
       h2,
       h3,
-      p {
+      p,
+      figure {
         margin: 0;
       }
 
       .site-header {
         position: sticky;
         top: 0;
-        z-index: 20;
+        z-index: 30;
         border-bottom: 1px solid var(--line);
-        background: rgba(251, 250, 242, 0.9);
+        background: rgba(251, 252, 255, 0.9);
         backdrop-filter: blur(14px);
       }
 
-      .nav {
+      .nav,
+      .wrap {
         width: min(1160px, calc(100% - 32px));
-        min-height: 64px;
         margin: 0 auto;
+      }
+
+      .nav {
+        min-height: 64px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 20px;
       }
 
       .brand {
-        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--navy);
+        font-weight: 900;
         text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        border: 3px solid var(--blue);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 78%, var(--yellow) 0 12%, transparent 13%),
+          linear-gradient(180deg, #fff 0 48%, var(--red) 49% 58%, #fff 59% 100%);
       }
 
       .nav-links {
         display: flex;
         justify-content: flex-end;
-        gap: 8px;
+        gap: 6px;
         flex-wrap: wrap;
       }
 
@@ -85,19 +105,34 @@
         border-radius: 999px;
         color: var(--muted);
         font-size: 0.9rem;
+        font-weight: 700;
         text-decoration: none;
       }
 
       .nav-links a:hover {
-        color: var(--deep);
-        background: rgba(47, 125, 88, 0.12);
+        color: var(--blue);
+        background: rgba(8, 119, 201, 0.1);
       }
 
       .hero {
-        min-height: 680px;
+        position: relative;
+        min-height: 660px;
         display: grid;
-        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+        overflow: hidden;
         border-bottom: 1px solid var(--line);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: 10%;
+        bottom: -90px;
+        width: 340px;
+        height: 340px;
+        border: 26px solid rgba(8, 119, 201, 0.12);
+        border-radius: 50%;
+        pointer-events: none;
       }
 
       .hero-copy {
@@ -105,31 +140,32 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 28px;
+        gap: 26px;
       }
 
       .eyebrow {
         width: fit-content;
         padding: 7px 11px;
-        border: 1px solid rgba(47, 125, 88, 0.28);
+        border: 1px solid rgba(8, 119, 201, 0.25);
         border-radius: 999px;
-        color: var(--leaf);
-        background: rgba(255, 254, 248, 0.78);
+        color: var(--blue);
+        background: rgba(255, 255, 255, 0.82);
         font-size: 0.82rem;
-        font-weight: 800;
+        font-weight: 900;
       }
 
       h1 {
-        max-width: 780px;
-        font-size: clamp(2.55rem, 6.4vw, 5.8rem);
+        max-width: 760px;
+        color: var(--navy);
+        font-size: clamp(2.45rem, 6.3vw, 5.8rem);
         line-height: 1;
       }
 
       .lead {
-        max-width: 650px;
+        max-width: 660px;
         color: var(--muted);
-        font-size: clamp(1.04rem, 2vw, 1.26rem);
-        line-height: 1.9;
+        font-size: clamp(1.04rem, 2vw, 1.22rem);
+        line-height: 1.88;
       }
 
       .hero-actions {
@@ -144,144 +180,103 @@
         align-items: center;
         justify-content: center;
         padding: 0 18px;
-        border: 1px solid var(--deep);
+        border: 1px solid var(--blue);
         border-radius: 999px;
-        background: var(--deep);
+        background: var(--blue);
         color: white;
-        font-weight: 800;
+        font-weight: 900;
         text-decoration: none;
       }
 
       .button.secondary {
-        background: transparent;
-        color: var(--deep);
+        background: white;
+        color: var(--blue);
       }
 
-      .hero-art {
+      .hero-visual {
         position: relative;
+        min-height: 560px;
         overflow: hidden;
-        min-height: 520px;
         background:
-          radial-gradient(circle at 32% 30%, rgba(255, 247, 181, 0.92) 0 6%, transparent 7%),
-          radial-gradient(circle at 64% 40%, rgba(255, 255, 255, 0.32) 0 10%, transparent 11%),
-          linear-gradient(135deg, #1e5f50 0 31%, #508d62 32% 49%, #d7b261 50% 70%, #7f5d71 71% 100%);
+          linear-gradient(140deg, rgba(8, 119, 201, 0.88), rgba(68, 180, 223, 0.9) 48%, rgba(246, 196, 71, 0.95) 49% 64%, rgba(223, 63, 63, 0.92) 65%),
+          #0f74bb;
       }
 
-      .hero-art::before,
-      .hero-art::after {
+      .hero-visual::before {
         content: "";
         position: absolute;
-        inset: auto -12% 0 -12%;
-        height: 48%;
-        background:
-          linear-gradient(12deg, transparent 0 18%, rgba(255, 255, 255, 0.58) 19% 20%, transparent 21% 100%),
-          linear-gradient(150deg, transparent 0 28%, rgba(255, 255, 255, 0.5) 29% 30%, transparent 31% 100%),
-          linear-gradient(135deg, #8a6f48, #caa45f 58%, #f1db9b);
-        clip-path: polygon(0 58%, 12% 42%, 23% 54%, 37% 28%, 53% 49%, 65% 22%, 82% 44%, 100% 18%, 100% 100%, 0 100%);
+        inset: 10% 12% 22%;
+        border: 2px dashed rgba(255, 255, 255, 0.58);
+        border-radius: 24px;
+        transform: rotate(-7deg);
       }
 
-      .hero-art::after {
-        inset: 0 -4% auto auto;
-        width: 54%;
-        height: 58%;
-        opacity: 0.88;
-        background:
-          radial-gradient(circle at 42% 44%, #ffe6a3 0 13%, transparent 14%),
-          linear-gradient(145deg, #5b4b7b, #253f53 64%, #132c32);
-        clip-path: polygon(44% 0, 100% 0, 100% 100%, 18% 76%, 0 31%);
-      }
-
-      .art-label {
+      .ticket-stack {
         position: absolute;
-        left: 24px;
-        bottom: 24px;
-        z-index: 2;
-        max-width: 360px;
-        padding: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        border-radius: 8px;
-        color: white;
-        background: rgba(24, 61, 58, 0.72);
-        backdrop-filter: blur(10px);
-      }
-
-      .art-label strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 1rem;
-      }
-
-      .art-label span {
-        color: rgba(255, 255, 255, 0.82);
-        line-height: 1.65;
-        font-size: 0.9rem;
-      }
-
-      .showcase {
+        left: 11%;
+        right: 10%;
+        bottom: 84px;
         display: grid;
-        grid-template-columns: 1.35fr 0.85fr;
-        gap: 16px;
-        margin-top: 28px;
+        gap: 14px;
+        transform: rotate(-4deg);
       }
 
-      .showcase-card {
+      .ticket {
         position: relative;
-        min-height: 280px;
-        overflow: hidden;
-        border: 1px solid var(--line);
+        min-height: 92px;
+        padding: 18px 76px 18px 22px;
         border-radius: 8px;
-        background: #102a27;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 16px 30px rgba(12, 42, 68, 0.18);
       }
 
-      .region-visual {
-        width: 100%;
-        height: 100%;
-        min-height: 280px;
-        background:
-          radial-gradient(circle at 68% 34%, rgba(255, 255, 255, 0.76) 0 7%, transparent 8%),
-          linear-gradient(160deg, #1d5f55 0 34%, #76a96b 35% 58%, #d6bc6d 59% 100%);
-      }
-
-      .showcase-card:nth-child(2) .region-visual {
-        background:
-          radial-gradient(circle at 76% 24%, rgba(255, 233, 165, 0.88) 0 8%, transparent 9%),
-          linear-gradient(155deg, #7a4f42 0 32%, #c58947 33% 59%, #ecd08a 60% 100%);
-      }
-
-      .showcase-card::after {
+      .ticket::after {
         content: "";
         position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, transparent 35%, rgba(9, 26, 24, 0.76));
+        top: 50%;
+        right: 24px;
+        width: 34px;
+        height: 34px;
+        border: 4px solid var(--yellow);
+        border-radius: 50%;
+        transform: translateY(-50%);
       }
 
-      .showcase-caption {
-        position: absolute;
-        left: 18px;
-        right: 18px;
-        bottom: 18px;
-        z-index: 1;
-        color: white;
-      }
-
-      .showcase-caption strong {
+      .ticket strong {
         display: block;
-        margin-bottom: 6px;
+        color: var(--navy);
+        font-size: 1.12rem;
+        line-height: 1.35;
       }
 
-      .showcase-caption span {
-        color: rgba(255, 255, 255, 0.82);
-        font-size: 0.9rem;
-        line-height: 1.6;
+      .ticket span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .hero-badge {
+        position: absolute;
+        top: 76px;
+        right: 32px;
+        width: 148px;
+        height: 148px;
+        display: grid;
+        place-items: center;
+        border: 10px solid rgba(255, 255, 255, 0.78);
+        border-radius: 50%;
+        color: white;
+        background: var(--red);
+        box-shadow: var(--shadow);
+        text-align: center;
+        font-size: 1.9rem;
+        font-weight: 900;
+        line-height: 0.95;
       }
 
       section {
         padding: 72px 0;
-      }
-
-      .wrap {
-        width: min(1160px, calc(100% - 32px));
-        margin: 0 auto;
       }
 
       .section-head {
@@ -293,153 +288,190 @@
       }
 
       h2 {
-        font-size: clamp(1.85rem, 4vw, 3.1rem);
-        line-height: 1.12;
+        color: var(--navy);
+        font-size: clamp(1.85rem, 4vw, 3.05rem);
+        line-height: 1.14;
       }
 
       .section-note {
-        max-width: 560px;
+        max-width: 610px;
         color: var(--muted);
         line-height: 1.8;
       }
 
-      .overview-grid {
+      .stats-grid,
+      .theme-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 16px;
       }
 
-      .overview-card,
-      .character-card,
-      .story-card,
+      .stat-card,
+      .movie-card,
       .theme-card,
-      .notice {
+      .note-panel,
+      .source-panel {
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--panel);
       }
 
-      .overview-card {
-        min-height: 170px;
+      .stat-card {
+        min-height: 156px;
         padding: 22px;
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
+        box-shadow: 0 10px 30px rgba(18, 51, 78, 0.07);
       }
 
-      .mark {
-        width: 44px;
-        height: 44px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        color: white;
-        background: var(--leaf);
+      .stat-number {
+        color: var(--blue);
+        font-size: 2.2rem;
         font-weight: 900;
+        line-height: 1;
       }
 
-      .overview-card:nth-child(2) .mark {
-        background: var(--sand);
-        color: #3b2b11;
+      .stat-card:nth-child(2) .stat-number {
+        color: var(--red);
       }
 
-      .overview-card:nth-child(3) .mark {
-        background: var(--violet);
+      .stat-card:nth-child(3) .stat-number {
+        color: var(--green);
       }
 
-      .overview-card:nth-child(4) .mark {
-        background: var(--blue);
+      .stat-card:nth-child(4) .stat-number {
+        color: #946600;
       }
 
-      .overview-card h3,
-      .character-card h3,
-      .story-card h3,
-      .theme-card h3 {
-        font-size: 1.08rem;
-        line-height: 1.35;
-      }
-
-      .overview-card p,
-      .character-card p,
-      .story-card p,
+      .stat-card p,
+      .movie-card p,
       .theme-card p,
-      .notice p,
+      .note-panel p,
+      .source-panel p,
       .source-list {
         color: var(--muted);
         line-height: 1.72;
       }
 
-      .characters {
+      .timeline-section {
         background:
-          linear-gradient(180deg, rgba(47, 125, 88, 0.12), rgba(216, 180, 106, 0.1)),
-          #f4f0df;
+          linear-gradient(180deg, rgba(216, 240, 255, 0.72), rgba(255, 255, 255, 0.75)),
+          #eef7fd;
         border-block: 1px solid var(--line);
       }
 
-      .character-grid {
+      .movie-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
       }
 
-      .character-card {
-        min-height: 260px;
+      .movie-card {
+        min-height: 246px;
         display: flex;
         flex-direction: column;
         overflow: hidden;
       }
 
-      .character-top {
-        min-height: 190px;
+      .movie-top {
+        position: relative;
+        min-height: 110px;
         padding: 18px;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 12px;
+        overflow: hidden;
+        color: white;
         background:
-          radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.88) 0 9%, transparent 10%),
-          linear-gradient(135deg, var(--leaf), #90a95c 56%, #dac173);
+          radial-gradient(circle at 84% 28%, rgba(255, 255, 255, 0.35) 0 13%, transparent 14%),
+          linear-gradient(135deg, var(--blue), #4db8df);
       }
 
-      .character-card:nth-child(2n) .character-top {
+      .movie-card:nth-child(3n + 2) .movie-top {
         background:
-          radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.88) 0 9%, transparent 10%),
-          linear-gradient(135deg, var(--violet), #517b8e 58%, #d8b46a);
+          radial-gradient(circle at 84% 28%, rgba(255, 255, 255, 0.38) 0 13%, transparent 14%),
+          linear-gradient(135deg, var(--red), #f08f4b);
       }
 
-      .character-card:nth-child(3n) .character-top {
+      .movie-card:nth-child(3n) .movie-top {
         background:
-          radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.88) 0 9%, transparent 10%),
-          linear-gradient(135deg, #905a35, #d09a52 58%, #2f7d58);
+          radial-gradient(circle at 84% 28%, rgba(255, 255, 255, 0.38) 0 13%, transparent 14%),
+          linear-gradient(135deg, var(--green), #f0c65b);
       }
 
-      .character-top span {
-        padding: 5px 9px;
+      .movie-top.has-image {
+        min-height: 238px;
+        padding: 14px;
+      }
+
+      .movie-top.has-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(12, 42, 68, 0.12), rgba(12, 42, 68, 0.72)),
+          linear-gradient(90deg, rgba(12, 42, 68, 0.38), transparent 55%);
+      }
+
+      .movie-top img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .movie-year {
+        position: relative;
+        z-index: 1;
+        width: fit-content;
+        padding: 7px 10px;
         border-radius: 999px;
-        color: #173021;
-        background: rgba(255, 254, 248, 0.78);
-        font-size: 0.78rem;
-        font-weight: 800;
+        background: rgba(8, 119, 201, 0.9);
+        font-size: 2rem;
+        font-weight: 900;
+        line-height: 1;
       }
 
-      .character-glyph {
-        width: 86px;
-        height: 86px;
+      .movie-icon {
+        position: relative;
+        z-index: 1;
+        width: 46px;
+        height: 46px;
         flex: 0 0 auto;
-        border: 1px solid rgba(255, 254, 248, 0.56);
+        border: 2px solid rgba(255, 255, 255, 0.78);
         border-radius: 50%;
         background:
-          radial-gradient(circle at 50% 50%, rgba(255, 254, 248, 0.92) 0 18%, transparent 19%),
-          conic-gradient(from 45deg, rgba(255, 255, 255, 0.65), transparent, rgba(255, 255, 255, 0.72), transparent, rgba(255, 255, 255, 0.65));
-        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.2);
+          linear-gradient(90deg, transparent 0 44%, rgba(255, 255, 255, 0.88) 45% 55%, transparent 56%),
+          linear-gradient(0deg, transparent 0 44%, rgba(255, 255, 255, 0.88) 45% 55%, transparent 56%);
       }
 
-      .character-body {
-        padding: 20px;
+      .movie-top.no-image {
+        min-height: 238px;
+        align-items: center;
+      }
+
+      .movie-top.no-image .movie-icon {
+        width: 72px;
+        height: 72px;
+        opacity: 0.78;
+      }
+
+      .movie-body {
+        padding: 19px;
         display: flex;
         flex: 1;
         flex-direction: column;
         gap: 12px;
+      }
+
+      .movie-body h3 {
+        font-size: 1.06rem;
+        line-height: 1.42;
       }
 
       .meta {
@@ -451,76 +483,84 @@
       .tag {
         padding: 5px 9px;
         border-radius: 999px;
-        background: rgba(47, 125, 88, 0.12);
-        color: #275f45;
+        background: rgba(8, 119, 201, 0.1);
+        color: #0865a9;
         font-size: 0.78rem;
-        font-weight: 800;
-      }
-
-      .tag.story {
-        background: rgba(102, 82, 143, 0.13);
-        color: #594479;
-      }
-
-      .tag.sand {
-        background: rgba(216, 180, 106, 0.22);
-        color: #755421;
-      }
-
-      .story-grid {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 14px;
-        counter-reset: story;
-      }
-
-      .story-card {
-        position: relative;
-        min-height: 250px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .story-card::before {
-        counter-increment: story;
-        content: "Act " counter(story);
-        width: fit-content;
-        padding: 5px 9px;
-        border-radius: 999px;
-        color: white;
-        background: var(--deep);
-        font-size: 0.74rem;
         font-weight: 900;
       }
 
-      .themes {
-        background: #f7f2e7;
-        border-top: 1px solid var(--line);
+      .tag.red {
+        background: rgba(223, 63, 63, 0.1);
+        color: #b33131;
       }
 
-      .theme-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
+      .tag.green {
+        background: rgba(36, 148, 109, 0.12);
+        color: #1e7457;
       }
 
-      .theme-card {
-        min-height: 220px;
-        padding: 22px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .notice {
-        margin-top: 28px;
+      .note-panel {
+        margin-top: 20px;
         padding: 22px;
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
         gap: 18px;
         align-items: center;
+      }
+
+      .themes {
+        background: #fff8e6;
+        border-top: 1px solid var(--line);
+      }
+
+      .theme-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .theme-card {
+        min-height: 205px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+
+      .theme-card h3 {
+        font-size: 1.08rem;
+        line-height: 1.35;
+      }
+
+      .watch-list {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 18px;
+      }
+
+      .watch-visual {
+        min-height: 420px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 50% 28%, #fff 0 17%, transparent 18%),
+          radial-gradient(circle at 50% 28%, var(--blue) 0 31%, transparent 32%),
+          linear-gradient(180deg, transparent 0 46%, rgba(255, 255, 255, 0.8) 47% 58%, transparent 59%),
+          linear-gradient(135deg, #0f7fcb 0 42%, #f6c447 43% 61%, #df3f3f 62% 100%);
+        box-shadow: var(--shadow);
+      }
+
+      .watch-cards {
+        display: grid;
+        gap: 14px;
+      }
+
+      .source-panel {
+        margin-top: 18px;
+        padding: 22px;
+      }
+
+      .source-list {
+        margin: 10px 0 0;
+        padding-left: 1.2rem;
       }
 
       footer {
@@ -530,13 +570,9 @@
         font-size: 0.9rem;
       }
 
-      .source-list {
-        margin: 10px 0 0;
-        padding-left: 1.2rem;
-      }
-
       @media (max-width: 980px) {
-        .hero {
+        .hero,
+        .watch-list {
           grid-template-columns: 1fr;
         }
 
@@ -544,26 +580,18 @@
           padding: 58px 24px;
         }
 
-        .hero-art {
-          min-height: 360px;
+        .hero-visual {
+          min-height: 420px;
         }
 
-        .overview-grid,
-        .character-grid,
+        .stats-grid,
+        .movie-grid,
         .theme-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .story-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .showcase {
-          grid-template-columns: 1fr;
-        }
-
         .section-head,
-        .notice {
+        .note-panel {
           grid-template-columns: 1fr;
           align-items: start;
           flex-direction: column;
@@ -587,21 +615,34 @@
           padding: 52px 0;
         }
 
-        .overview-grid,
-        .character-grid,
-        .story-grid,
+        .stats-grid,
+        .movie-grid,
         .theme-grid {
           grid-template-columns: 1fr;
         }
 
-        .art-label {
-          left: 16px;
-          right: 16px;
-          bottom: 16px;
+        .hero-badge {
+          top: 28px;
+          right: 20px;
+          width: 112px;
+          height: 112px;
+          border-width: 7px;
+          font-size: 1.38rem;
         }
 
-        .character-top {
-          min-height: 168px;
+        .ticket-stack {
+          left: 18px;
+          right: 18px;
+          bottom: 48px;
+        }
+
+        .ticket {
+          min-height: 82px;
+          padding-right: 58px;
+        }
+
+        .watch-visual {
+          min-height: 280px;
         }
       }
     </style>
@@ -609,12 +650,16 @@
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="サイト内ナビゲーション">
-        <a class="brand" href="#">Sumeru Archive</a>
+        <a class="brand" href="#">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Dora Movie Archive</span>
+        </a>
         <div class="nav-links">
           <a href="#overview">概要</a>
-          <a href="#characters">キャラクター</a>
-          <a href="#story">ストーリー</a>
-          <a href="#themes">テーマ</a>
+          <a href="#timeline">年表</a>
+          <a href="#themes">傾向</a>
+          <a href="#guide">見方</a>
+          <a href="characters.html">キャラクター</a>
         </div>
       </nav>
     </header>
@@ -622,20 +667,31 @@
     <main>
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="eyebrow">非公式ファンサイト / 情報確認日 2026.05.20</p>
-          <h1 id="page-title">原神 スメール地方のキャラクターと物語</h1>
+          <p class="eyebrow">非公式ファンサイト / 2012-2026</p>
+          <h1 id="page-title">映画ドラえもん 15年アーカイブ</h1>
           <p class="lead">
-            知恵の国スメールを、森と砂漠、アカデミア、草神、旅人の出会いから整理するガイドです。未プレイの人にも見やすいように、概要とネタバレ寄りの要点を分けてまとめています。
+            2012年から2026年までの映画ドラえもんを、公開年・冒険の舞台・見どころで一気に振り返るページです。近年のリメイク、オリジナル作品、音楽や友情のテーマを年表で整理しました。
           </p>
           <div class="hero-actions">
-            <a class="button" href="#characters">人物から見る</a>
-            <a class="button secondary" href="#story">物語を追う</a>
+            <a class="button" href="#timeline">年表を見る</a>
+            <a class="button secondary" href="#themes">傾向を読む</a>
           </div>
         </div>
-        <div class="hero-art" role="img" aria-label="森、砂漠、知恵の都市をイメージしたスメール風の抽象ビジュアル">
-          <div class="art-label">
-            <strong>Forest, Desert, Wisdom</strong>
-            <span>雨林の生命力、赤砂の遺跡、アカデミアの知識が交差する地域として構成しています。</span>
+        <div class="hero-visual" role="img" aria-label="映画チケットが重なるドラえもん映画アーカイブ風のビジュアル">
+          <div class="hero-badge">15<br>YEARS</div>
+          <div class="ticket-stack" aria-hidden="true">
+            <div class="ticket">
+              <strong>2026 海底鬼岩城</strong>
+              <span>海の底へ向かう大冒険</span>
+            </div>
+            <div class="ticket">
+              <strong>2025 絵世界物語</strong>
+              <span>絵の中の世界をめぐる物語</span>
+            </div>
+            <div class="ticket">
+              <strong>2024 地球交響楽</strong>
+              <span>音楽で地球を救う冒険</span>
+            </div>
           </div>
         </div>
       </section>
@@ -643,203 +699,215 @@
       <section id="overview" aria-labelledby="overview-title">
         <div class="wrap">
           <div class="section-head">
-            <h2 id="overview-title">スメールの見取り図</h2>
+            <h2 id="overview-title">15年の見取り図</h2>
             <p class="section-note">
-              スメールはテイワット七国のひとつで、草元素と知恵を中心に描かれる地域です。魔神任務 第三章の舞台で、雨林と砂漠の対比が物語にも探索にも強く効いています。
+              このページでは2012年から2026年までを対象にしています。2021年は新作の劇場公開がなく、『のび太の宇宙小戦争 2021』は近年枠の重要作として2022年公開作品に含めています。
             </p>
           </div>
-          <div class="overview-grid">
-            <article class="overview-card">
-              <div class="mark" aria-hidden="true">草</div>
-              <h3>草神と知恵</h3>
-              <p>ナヒーダを中心に、知識を管理する仕組みと、人が自分で考えることの意味が描かれます。</p>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-number">15</div>
+              <h3>対象年</h3>
+              <p>2012年から2026年まで。平成後期から令和の映画ドラえもんをまとめています。</p>
             </article>
-            <article class="overview-card">
-              <div class="mark" aria-hidden="true">砂</div>
-              <h3>雨林と砂漠</h3>
-              <p>スメールシティ周辺の雨林、キングデシェレトの遺跡が残る砂漠が大きな軸です。</p>
+            <article class="stat-card">
+              <div class="stat-number">14</div>
+              <h3>劇場公開作品</h3>
+              <p>2021年は新作公開なしのため、この期間の劇場公開作品は14本として整理しています。</p>
             </article>
-            <article class="overview-card">
-              <div class="mark" aria-hidden="true">学</div>
-              <h3>教令院</h3>
-              <p>学術都市の中枢。研究、権威、情報統制がストーリーの緊張を生みます。</p>
+            <article class="stat-card">
+              <div class="stat-number">5</div>
+              <h3>大きな冒険軸</h3>
+              <p>宇宙、海、恐竜、歴史、音楽など、子どもにも伝わりやすい舞台設定が続きます。</p>
             </article>
-            <article class="overview-card">
-              <div class="mark" aria-hidden="true">夢</div>
-              <h3>夢と記憶</h3>
-              <p>アーカーシャ、世界樹、夢の世界など、目に見えない情報が物語の鍵になります。</p>
-            </article>
-          </div>
-          <div class="showcase" aria-label="スメール地域ビジュアル">
-            <figure class="showcase-card">
-              <div class="region-visual" role="img" aria-label="雨林エリアをイメージした抽象ビジュアル"></div>
-              <figcaption class="showcase-caption">
-                <strong>Dharma Forest</strong>
-                <span>雨林、巨大樹、スメールシティ周辺の緑を印象づけるエリア。</span>
-              </figcaption>
-            </figure>
-            <figure class="showcase-card">
-              <div class="region-visual" role="img" aria-label="砂漠エリアをイメージした抽象ビジュアル"></div>
-              <figcaption class="showcase-caption">
-                <strong>Great Red Sand</strong>
-                <span>赤砂、古代遺跡、キングデシェレトの伝承につながる舞台。</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="characters" id="characters" aria-labelledby="characters-title">
-        <div class="wrap">
-          <div class="section-head">
-            <h2 id="characters-title">主要キャラクター</h2>
-            <p class="section-note">
-              プレイアブルのスメール関連キャラクターから、魔神任務や地域理解に関わりが深い人物を中心にまとめています。
-            </p>
-          </div>
-          <div class="character-grid">
-            <article class="character-card">
-              <div class="character-top">
-                <span>草神 / 知恵</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">ナヒーダ</span><span class="tag story">物語の中心</span></div>
-                <h3>小さなクラクサナリデビ</h3>
-                <p>スメールの草神。人々に近い視点を持ち、知識と夢をめぐる物語の核心に立つ存在です。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>教令院 / 理性</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">アルハイゼン</span><span class="tag story">策士</span></div>
-                <h3>アカデミアの書記官</h3>
-                <p>冷静な観察眼で状況を読み解く人物。スメール編では権力構造への切り込み役になります。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>大マハマトラ / 裁き</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">セノ</span><span class="tag sand">砂漠にも関係</span></div>
-                <h3>規律を執行する者</h3>
-                <p>学者を取り締まる大マハマトラ。厳格さと仲間への信頼が、物語後半で強く出ます。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>劇場 / 芸術</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">ニィロウ</span><span class="tag story">夢と祭り</span></div>
-                <h3>ズバイルシアターの踊り子</h3>
-                <p>サブゼルズ祭と強く結びつく人物。芸術が抑圧された都市の中で、人々の心を動かします。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>レンジャー / 森</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">ティナリ</span><span class="tag">コレイ</span></div>
-                <h3>アビディアの森を守る人々</h3>
-                <p>雨林側の入口を支えるレンジャーたち。死域、森の生態、スメールの日常を知る導入役です。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>傭兵 / 砂漠</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">ディシア</span><span class="tag">キャンディス</span></div>
-                <h3>砂漠の人々の視点</h3>
-                <p>都市と砂漠の距離感を見せる人物たち。アアル村やエルマイト旅団の立場を理解しやすくします。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>建築 / 理想</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">カーヴェ</span><span class="tag story">後日談向き</span></div>
-                <h3>理想を捨てない建築家</h3>
-                <p>本編後のスメール理解を深める人物。理想、生活、創作の苦さがキャラクター性に出ています。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>商人 / 学者</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">ドリー</span><span class="tag">レイラ</span><span class="tag">ファルザン</span></div>
-                <h3>スメールの日常を広げる面々</h3>
-                <p>商売、睡眠不足の学生、古典研究者など、教令院社会の横顔を見せてくれます。</p>
-              </div>
-            </article>
-            <article class="character-card">
-              <div class="character-top">
-                <span>放浪 / 記憶</span>
-                <div class="character-glyph" aria-hidden="true"></div>
-              </div>
-              <div class="character-body">
-                <div class="meta"><span class="tag">放浪者</span><span class="tag story">世界樹</span></div>
-                <h3>記憶を書き換える物語へ</h3>
-                <p>スメール後半から間章にかけて、世界樹と記憶のテーマを別角度から掘り下げる存在です。</p>
-              </div>
+            <article class="stat-card">
+              <div class="stat-number">2026</div>
+              <h3>最新作</h3>
+              <p>『新・のび太の海底鬼岩城』がこのページの最新作です。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="story" aria-labelledby="story-title">
+      <section class="timeline-section" id="timeline" aria-labelledby="timeline-title">
         <div class="wrap">
           <div class="section-head">
-            <h2 id="story-title">ストーリーの流れ</h2>
+            <h2 id="timeline-title">映画年表</h2>
             <p class="section-note">
-              ここからは魔神任務 第三章の要約を含みます。未プレイなら、まず「概要」だけ読んでゲーム本編に進むのがおすすめです。
+              タイトルは公式のドラ映画ヒストリーを基準にし、見どころは作品の舞台や物語の方向性がすぐ分かるよう短くまとめています。
             </p>
           </div>
-          <div class="story-grid">
-            <article class="story-card">
-              <h3>雨林への到着</h3>
-              <p>旅人はスメールへ入り、ティナリやコレイと出会います。死域や草元素の仕組みを通じて、地域の異変が見え始めます。</p>
+          <div class="movie-grid">
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/2026/images/og0227.jpg" alt="『映画ドラえもん 新・のび太の海底鬼岩城』公式ビジュアル" loading="lazy">
+                <div class="movie-year">2026</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">海底</span><span class="tag red">最新作</span></div>
+                <h3>映画ドラえもん 新・のび太の海底鬼岩城</h3>
+                <p>海底キャンプから始まる冒険。ムー連邦や鬼岩城をめぐる、海の底のスケール感が見どころです。</p>
+              </div>
             </article>
-            <article class="story-card">
-              <h3>サブゼルズ祭</h3>
-              <p>スメールシティでニィロウたちの祭りに関わり、夢とアーカーシャをめぐる異常なループに巻き込まれます。</p>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/images_new/og07xx.jpg" alt="『映画ドラえもん のび太の絵世界物語』公式ビジュアル" loading="lazy">
+                <div class="movie-year">2025</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">絵画</span><span class="tag green">ファンタジー</span></div>
+                <h3>映画ドラえもん のび太の絵世界物語</h3>
+                <p>絵の世界をテーマにした一作。描かれた世界へ入り込むような、創作と冒険の楽しさが軸です。</p>
+              </div>
             </article>
-            <article class="story-card">
-              <h3>教令院の計画</h3>
-              <p>知識を支配する教令院の思惑が表面化し、ナヒーダの立場とスメールの統治構造が大きな問題になります。</p>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p42.jpg" alt="『映画ドラえもん のび太の地球交響楽』のポスター" loading="lazy">
+                <div class="movie-year">2024</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">音楽</span><span class="tag red">地球</span></div>
+                <h3>映画ドラえもん のび太の地球交響楽</h3>
+                <p>音楽が消える危機に立ち向かう物語。リコーダーや演奏が、冒険の力として描かれます。</p>
+              </div>
             </article>
-            <article class="story-card">
-              <h3>砂漠と過去</h3>
-              <p>アアル村や赤砂の遺跡を通して、都市と砂漠の分断、キングデシェレトとマハールッカデヴァータの記憶に触れます。</p>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p41.jpg" alt="『映画ドラえもん のび太と空の理想郷』のポスター" loading="lazy">
+                <div class="movie-year">2023</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">空</span><span class="tag green">理想郷</span></div>
+                <h3>映画ドラえもん のび太と空の理想郷</h3>
+                <p>空に浮かぶ理想郷を探す冒険。完璧に見える世界の裏側に迫るミステリー性もあります。</p>
+              </div>
             </article>
-            <article class="story-card">
-              <h3>知恵の解放</h3>
-              <p>仲間たちの作戦によって真相へ迫り、草神、世界樹、記憶の扱いがスメール編の結末を形づくります。</p>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p40.jpg" alt="『映画ドラえもん のび太の宇宙小戦争 2021』のポスター" loading="lazy">
+                <div class="movie-year">2022</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">宇宙</span><span class="tag red">友情</span></div>
+                <h3>映画ドラえもん のび太の宇宙小戦争 2021</h3>
+                <p>小さな宇宙人パピとの出会いから始まる宇宙冒険。小さな仲間を守る友情が中心です。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top no-image"><div class="movie-year">2021</div><div class="movie-icon" aria-hidden="true"></div></div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag red">公開なし</span><span class="tag">整理メモ</span></div>
+                <h3>新作劇場公開なし</h3>
+                <p>15年の流れを読むうえで空白の年として扱っています。前後の作品をつなぐ節目として見てください。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p39.jpg" alt="『映画ドラえもん のび太の新恐竜』のポスター" loading="lazy">
+                <div class="movie-year">2020</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">恐竜</span><span class="tag green">新作物語</span></div>
+                <h3>映画ドラえもん のび太の新恐竜</h3>
+                <p>双子の恐竜キューとミューとの出会いを描く作品。育てる責任と別れが心に残ります。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p38.jpg" alt="『映画ドラえもん のび太の月面探査記』のポスター" loading="lazy">
+                <div class="movie-year">2019</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">月</span><span class="tag">想像力</span></div>
+                <h3>映画ドラえもん のび太の月面探査記</h3>
+                <p>月の裏側と想像力をめぐる冒険。見えないものを信じる気持ちが物語の芯になります。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p37.jpg" alt="『映画ドラえもん のび太の宝島』のポスター" loading="lazy">
+                <div class="movie-year">2018</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">宝島</span><span class="tag red">海賊</span></div>
+                <h3>映画ドラえもん のび太の宝島</h3>
+                <p>宝島を目指す海洋冒険。家族、仲間、船旅のワクワク感が強いエンタメ作です。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p36.jpg" alt="『映画ドラえもん のび太の南極カチコチ大冒険』のポスター" loading="lazy">
+                <div class="movie-year">2017</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">南極</span><span class="tag green">氷</span></div>
+                <h3>映画ドラえもん のび太の南極カチコチ大冒険</h3>
+                <p>南極の氷の世界が舞台。古代文明やリングをめぐる謎が、寒さの中で広がっていきます。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p35.jpg" alt="『映画ドラえもん 新・のび太の日本誕生』のポスター" loading="lazy">
+                <div class="movie-year">2016</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">原始時代</span><span class="tag red">リメイク</span></div>
+                <h3>映画ドラえもん 新・のび太の日本誕生</h3>
+                <p>7万年前の日本を舞台にした大冒険。仲間と新しい居場所を作る楽しさがあります。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p34.jpg" alt="『映画ドラえもん のび太の宇宙英雄記』のポスター" loading="lazy">
+                <div class="movie-year">2015</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">宇宙</span><span class="tag green">ヒーロー</span></div>
+                <h3>映画ドラえもん のび太の宇宙英雄記</h3>
+                <p>ヒーロー映画ごっこから本物の宇宙冒険へ。役になりきる楽しさと成長が重なります。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p33.jpg" alt="『映画ドラえもん 新・のび太の大魔境』のポスター" loading="lazy">
+                <div class="movie-year">2014</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">秘境</span><span class="tag red">リメイク</span></div>
+                <h3>映画ドラえもん 新・のび太の大魔境</h3>
+                <p>未知のジャングルと王国をめぐる冒険。ペコとの関係が、仲間を信じる物語につながります。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p32.jpg" alt="『映画ドラえもん のび太のひみつ道具博物館』のポスター" loading="lazy">
+                <div class="movie-year">2013</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">ひみつ道具</span><span class="tag green">博物館</span></div>
+                <h3>映画ドラえもん のび太のひみつ道具博物館</h3>
+                <p>ひみつ道具の博物館を舞台にしたミステリー。道具好きには特に楽しい一作です。</p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <div class="movie-top has-image">
+                <img src="https://doraeiga.com/eximages/2025/45thmatsuri/detail_p31.jpg" alt="『映画ドラえもん のび太と奇跡の島』のポスター" loading="lazy">
+                <div class="movie-year">2012</div><div class="movie-icon" aria-hidden="true"></div>
+              </div>
+              <div class="movie-body">
+                <div class="meta"><span class="tag">島</span><span class="tag red">動物</span></div>
+                <h3>映画ドラえもん のび太と奇跡の島</h3>
+                <p>絶滅動物が暮らす島が舞台。自然や家族をめぐるテーマが印象的です。</p>
+              </div>
             </article>
           </div>
 
-          <div class="notice">
+          <div class="note-panel">
             <div>
-              <h3>ネタバレを避けるなら</h3>
-              <p>
-                「ナヒーダ」「世界樹」「放浪者」に関する詳細は、魔神任務 第三章と間章を終えてから読むと体験を損ないにくいです。
-              </p>
+              <h3>年表の読み方</h3>
+              <p>「リメイク」と「完全新作」が混ざっているのが近年の特徴です。昔の名作を知っている人も、最近見始めた人も、舞台やテーマごとに選びやすくしています。</p>
             </div>
-            <a class="button" href="#themes">テーマを見る</a>
+            <a class="button" href="#guide">おすすめ順へ</a>
           </div>
         </div>
       </section>
@@ -847,46 +915,78 @@
       <section class="themes" id="themes" aria-labelledby="themes-title">
         <div class="wrap">
           <div class="section-head">
-            <h2 id="themes-title">深掘りテーマ</h2>
+            <h2 id="themes-title">近年作の傾向</h2>
             <p class="section-note">
-              スメール編を振り返るときは、キャラクター単体だけでなく、地域の思想や仕組みごと見ると理解しやすくなります。
+              タイトルを並べるだけでなく、どんな冒険が増えているのかをテーマ別に見ると、作品選びがしやすくなります。
             </p>
           </div>
           <div class="theme-grid">
             <article class="theme-card">
-              <h3>知識は誰のものか</h3>
-              <p>アーカーシャは便利な知識基盤である一方、人々の判断や夢を奪う危うさも抱えています。</p>
+              <h3>リメイクで名作を更新</h3>
+              <p>『新・のび太の日本誕生』『新・のび太の大魔境』『新・のび太の海底鬼岩城』など、旧作の冒険を現代向けに再構成する流れがあります。</p>
             </article>
             <article class="theme-card">
-              <h3>神と人の距離</h3>
-              <p>ナヒーダは万能の支配者ではなく、人々を理解しようとする神として描かれます。</p>
+              <h3>舞台の広がり</h3>
+              <p>月、南極、海底、宇宙、絵の世界まで、毎年違う場所へ連れて行くシリーズらしさが続いています。</p>
             </article>
             <article class="theme-card">
-              <h3>都市と砂漠の断絶</h3>
-              <p>スメールシティの学術中心主義と、砂漠に暮らす人々の歴史が対立と和解の背景になります。</p>
+              <h3>のび太の成長</h3>
+              <p>弱さや怖さを抱えながらも、友だちのために踏み出すのび太の姿が、近年作でも大きな軸です。</p>
             </article>
             <article class="theme-card">
-              <h3>夢と芸術</h3>
-              <p>ニィロウの祭りや演劇は、知識だけでは測れない価値を物語の中で示します。</p>
+              <h3>友情と異文化</h3>
+              <p>異星人、海底人、恐竜、未知の世界の住人など、最初は違う相手と分かり合う物語が多く見られます。</p>
             </article>
             <article class="theme-card">
-              <h3>記憶と世界樹</h3>
-              <p>世界の記録が変わると、人々の認識も変わる。スメール編はこの設定を大きく前面に出します。</p>
+              <h3>ひみつ道具の見せ場</h3>
+              <p>スモールライト、タイムふろしき、乗り物系の道具など、冒険の入口を作る道具が作品ごとに活躍します。</p>
             </article>
             <article class="theme-card">
-              <h3>仲間による作戦劇</h3>
-              <p>アルハイゼン、セノ、ディシア、ニィロウたちの役割分担が、終盤の面白さを支えています。</p>
+              <h3>家族で見やすい構成</h3>
+              <p>小学生にも伝わるテーマを中心にしつつ、大人が見ても懐かしさや別れの余韻を感じられる作りです。</p>
             </article>
           </div>
+        </div>
+      </section>
 
-          <div class="notice">
-            <div>
-              <h3>出典と確認先</h3>
-              <p>
-                地域設定、実装キャラクター、魔神任務の情報は、公式ゲーム内情報と公開Wikiを参考に整理しています。今後の更新で解釈や関連キャラクターが増える可能性があります。
-              </p>
+      <section id="guide" aria-labelledby="guide-title">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="guide-title">どれから見る？</h2>
+            <p class="section-note">
+              全部を順番に見なくても大丈夫です。好きな舞台や気分から選ぶと入りやすくなります。
+            </p>
+          </div>
+          <div class="watch-list">
+            <figure class="watch-visual" role="img" aria-label="ドラえもん映画を選ぶためのカラフルな円形ビジュアル"></figure>
+            <div class="watch-cards">
+              <article class="theme-card">
+                <h3>冒険感を強く味わうなら</h3>
+                <p>『のび太の宝島』『のび太の南極カチコチ大冒険』『新・のび太の海底鬼岩城』。大きな舞台を旅する楽しさがあります。</p>
+              </article>
+              <article class="theme-card">
+                <h3>友情を中心に見るなら</h3>
+                <p>『のび太の宇宙小戦争 2021』『のび太の新恐竜』『のび太と空の理想郷』。出会った相手との信頼が物語を動かします。</p>
+              </article>
+              <article class="theme-card">
+                <h3>ひみつ道具が好きなら</h3>
+                <p>『のび太のひみつ道具博物館』から入るのがおすすめです。道具そのものが物語の中心に近い作品です。</p>
+              </article>
             </div>
-            <a class="button" href="https://genshin-impact.fandom.com/wiki/Sumeru" target="_blank" rel="noreferrer">参考Wikiを見る</a>
+          </div>
+
+          <div class="source-panel">
+            <h3>出典と確認先</h3>
+            <p>
+              タイトル年表と各年の画像は、映画ドラえもん公式サイトの「ドラ映画ヒストリー」、45周年記念ページ、2025年・2026年公式サイトを参考にしています。作品名、公開扱い、最新作情報は今後変わる可能性があるため、詳細は公式情報で確認してください。
+            </p>
+            <ul class="source-list">
+              <li><a href="https://doraeiga.com/link/" target="_blank" rel="noreferrer">ドラ映画ヒストリー</a></li>
+              <li><a href="https://doraeiga.com/2025/45thmatsuri/" target="_blank" rel="noreferrer">シリーズ45周年記念！映画ドラえもんまつり</a></li>
+              <li><a href="https://doraeiga.com/2025/" target="_blank" rel="noreferrer">『映画ドラえもん のび太の絵世界物語』公式サイト</a></li>
+              <li><a href="https://doraeiga.com/2026/" target="_blank" rel="noreferrer">『映画ドラえもん 新・のび太の海底鬼岩城』公式サイト</a></li>
+              <li>このサイトは個人制作の非公式ファンまとめです。ドラえもん、映画タイトル、関連名称は各権利者に帰属します。</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -894,11 +994,7 @@
 
     <footer>
       <div class="wrap">
-        <p>このサイトは個人制作の非公式ファンガイドです。原神、Genshin Impact、各キャラクター名および関連名称は各権利者に帰属します。</p>
-        <ul class="source-list">
-          <li>Reference: Genshin Impact Wiki - Sumeru / Playable Sumeru Characters</li>
-          <li>Visuals: CSSで作成したスメール風の抽象ビジュアル</li>
-        </ul>
+        <p>非公式ファンサイト / Visuals: CSSで作成した映画チケット風ビジュアル / Last updated: 2026.05.21</p>
       </div>
     </footer>
   </body>
