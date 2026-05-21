@@ -237,23 +237,39 @@
       }
 
       .dorayaki {
-        left: 9%;
-        top: 70px;
-        width: 118px;
-        height: 66px;
-        border-radius: 50%;
+        left: 11%;
+        top: 86px;
+        width: 124px;
+        height: 54px;
+        border-radius: 999px;
         background:
-          radial-gradient(ellipse at 50% 54%, #7a3f1f 0 36%, transparent 37%),
-          radial-gradient(ellipse at 50% 48%, #f0bf62 0 58%, #b96b33 59% 100%);
-        transform: rotate(-10deg);
+          linear-gradient(180deg, #d1833d 0 42%, #5b2f1b 43% 56%, #c47734 57% 100%);
+        transform: rotate(-8deg);
+        box-shadow:
+          inset 0 8px 0 rgba(255, 213, 135, 0.44),
+          inset 0 -8px 0 rgba(105, 53, 28, 0.18);
       }
 
       .dorayaki::before {
         content: "";
         position: absolute;
-        inset: 13px 18px 18px;
-        border-radius: 50%;
-        background: rgba(255, 229, 151, 0.42);
+        left: 18px;
+        right: 18px;
+        top: 8px;
+        height: 16px;
+        border-radius: 999px;
+        background: rgba(255, 225, 154, 0.42);
+      }
+
+      .dorayaki::after {
+        content: "";
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 25px;
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(69, 31, 19, 0.78);
       }
 
       .bell {
@@ -306,7 +322,7 @@
       }
 
       body.motion-ready .treat.pop-item {
-        transform: translateY(26px) scale(0.78) rotate(-10deg);
+        transform: translateY(26px) scale(0.78) rotate(-8deg);
       }
 
       body.motion-ready .bell.pop-item {
@@ -314,7 +330,7 @@
       }
 
       body.motion-ready .treat.pop-item.is-visible {
-        transform: translateY(0) scale(1) rotate(-10deg);
+        transform: translateY(0) scale(1) rotate(-8deg);
       }
 
       body.motion-ready .bell.pop-item.is-visible {
@@ -638,10 +654,10 @@
         }
 
         .dorayaki {
-          top: 48px;
-          left: 22px;
-          width: 88px;
-          height: 50px;
+          top: 52px;
+          left: 20px;
+          width: 92px;
+          height: 40px;
         }
 
         .bell {
