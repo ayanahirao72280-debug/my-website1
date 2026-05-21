@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ドラえもん、のび太、しずか、スネ夫、ジャイアンの自己紹介をまとめた非公式キャラクター紹介ページです。">
+    <meta name="description" content="ドラえもん、のび太、しずか、スネ夫、ジャイアンの自己紹介をまとめた非公式キャラクター紹介ページ。">
     <title>主要キャラクター自己紹介 | Dora Movie Archive</title>
     <style>
       :root {
@@ -141,10 +141,13 @@
       }
 
       h1 {
-        max-width: 760px;
+        max-width: 820px;
         color: var(--navy);
-        font-size: clamp(2.3rem, 5.8vw, 5.2rem);
-        line-height: 1;
+        font-size: clamp(2.25rem, 5.1vw, 4.8rem);
+        line-height: 1.06;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
       }
 
       .lead {
@@ -226,6 +229,107 @@
           linear-gradient(180deg, #d98232 0 56%, #fff 57% 100%);
       }
 
+      .treat {
+        position: absolute;
+        z-index: 3;
+        pointer-events: none;
+        filter: drop-shadow(0 16px 18px rgba(12, 42, 68, 0.22));
+      }
+
+      .dorayaki {
+        left: 9%;
+        top: 70px;
+        width: 118px;
+        height: 66px;
+        border-radius: 50%;
+        background:
+          radial-gradient(ellipse at 50% 54%, #7a3f1f 0 36%, transparent 37%),
+          radial-gradient(ellipse at 50% 48%, #f0bf62 0 58%, #b96b33 59% 100%);
+        transform: rotate(-10deg);
+      }
+
+      .dorayaki::before {
+        content: "";
+        position: absolute;
+        inset: 13px 18px 18px;
+        border-radius: 50%;
+        background: rgba(255, 229, 151, 0.42);
+      }
+
+      .bell {
+        right: 12%;
+        top: 62px;
+        width: 78px;
+        height: 78px;
+        border: 5px solid #9a6b00;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 64%, #9a6b00 0 8%, transparent 9%),
+          linear-gradient(180deg, #ffe27a 0 58%, #f0b92f 59% 100%);
+      }
+
+      .bell::before,
+      .bell::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #9a6b00;
+      }
+
+      .bell::before {
+        top: 31px;
+        width: 62px;
+        height: 5px;
+        border-radius: 999px;
+      }
+
+      .bell::after {
+        bottom: 12px;
+        width: 28px;
+        height: 5px;
+        border-radius: 999px;
+      }
+
+      body.motion-ready .pop-item {
+        opacity: 0;
+        transform: translateY(34px) scale(0.94);
+        transition:
+          opacity 520ms ease,
+          transform 620ms cubic-bezier(0.2, 1.45, 0.34, 1);
+        transition-delay: var(--pop-delay, 0ms);
+      }
+
+      body.motion-ready .pop-item.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      body.motion-ready .treat.pop-item {
+        transform: translateY(26px) scale(0.78) rotate(-10deg);
+      }
+
+      body.motion-ready .bell.pop-item {
+        transform: translateY(26px) scale(0.78) rotate(8deg);
+      }
+
+      body.motion-ready .treat.pop-item.is-visible {
+        transform: translateY(0) scale(1) rotate(-10deg);
+      }
+
+      body.motion-ready .bell.pop-item.is-visible {
+        transform: translateY(0) scale(1) rotate(8deg);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body.motion-ready .pop-item,
+        body.motion-ready .pop-item.is-visible {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
       section {
         padding: 72px 0;
       }
@@ -242,6 +346,9 @@
         color: var(--navy);
         font-size: clamp(1.85rem, 4vw, 3.05rem);
         line-height: 1.14;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
       }
 
       .section-note {
@@ -385,8 +492,11 @@
 
       .character-body h3 {
         color: var(--navy);
-        font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+        font-size: clamp(1.35rem, 2.2vw, 1.9rem);
         line-height: 1.18;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
       }
 
       .intro {
@@ -527,6 +637,26 @@
           gap: 8px;
         }
 
+        .dorayaki {
+          top: 48px;
+          left: 22px;
+          width: 88px;
+          height: 50px;
+        }
+
+        .bell {
+          top: 48px;
+          right: 28px;
+          width: 58px;
+          height: 58px;
+          border-width: 4px;
+        }
+
+        .bell::before {
+          top: 23px;
+          width: 45px;
+        }
+
         .character-body {
           padding: 20px;
         }
@@ -553,14 +683,16 @@
     <main>
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="eyebrow">主要キャラクター / 自己紹介</p>
-          <h1 id="page-title">ぼくたちの自己紹介</h1>
+          <p class="eyebrow">主要キャラクター / 紹介</p>
+          <h1 id="page-title">主要キャラクター紹介</h1>
           <p class="lead">
-            映画ドラえもんの冒険を支える、ドラえもん、のび太、しずか、スネ夫、ジャイアンの紹介ページです。本人が話しているような短い自己紹介で、それぞれの個性をまとめました。
+            映画ドラえもんの冒険を支える、ドラえもん、のび太、しずか、スネ夫、ジャイアンの紹介ページ。作品ごとの活躍を追いやすいように、それぞれの立ち位置と持ち味を短く整理した。
           </p>
           <a class="button" href="#characters">5人を見る</a>
         </div>
         <div class="hero-visual" role="img" aria-label="主要キャラクター5人をイメージした丸いアイコン">
+          <div class="treat dorayaki" aria-hidden="true"></div>
+          <div class="treat bell" aria-hidden="true"></div>
           <div class="face-row" aria-hidden="true">
             <div class="mini-face blue"></div>
             <div class="mini-face yellow"></div>
@@ -576,7 +708,7 @@
           <div class="section-head">
             <h2 id="characters-title">主要キャラクター</h2>
             <p class="section-note">
-              このページのイラストは公式画像ではなく、色と形で雰囲気を表したCSS製の簡易アイコンです。
+              このページのイラストは公式画像ではなく、色と形で雰囲気を表したCSS製の簡易アイコン。
             </p>
           </div>
 
@@ -587,8 +719,8 @@
                 <div class="meta"><span class="tag">ネコ型ロボット</span><span class="tag red">ひみつ道具</span></div>
                 <h3>ドラえもん</h3>
                 <p class="voice"><span>声優</span> 水田わさび</p>
-                <p class="intro">こんにちは、ぼくドラえもんです。22世紀から来たネコ型ロボットで、のび太くんを助けるために一緒に暮らしています。</p>
-                <p class="detail">四次元ポケットからひみつ道具を出して、困ったことを解決します。でも、道具に頼りすぎると大変なことになるので、最後はみんなで考えて動くことが大切です。好物はどら焼きです。</p>
+                <p class="intro">22世紀から来たネコ型ロボット。のび太を助けるために、野比家で暮らしている。</p>
+                <p class="detail">四次元ポケットから出すひみつ道具が物語のきっかけになる一方、道具だけでは解決できない問題にも向き合う。映画では、仲間を導く保護者のような立場と、いっしょに迷いながら進む友だちとしての顔が両方描かれる。好物はどら焼き。</p>
                 <a class="official-link" href="https://www.tv-asahi.co.jp/doraemon/character/" target="_blank" rel="noreferrer">公式キャラクター紹介を見る</a>
               </div>
             </article>
@@ -599,8 +731,8 @@
                 <div class="meta"><span class="tag">小学生</span><span class="tag green">やさしさ</span></div>
                 <h3>野比のび太</h3>
                 <p class="voice"><span>声優</span> 大原めぐみ</p>
-                <p class="intro">ぼくは野比のび太。勉強も運動もあまり得意じゃないけれど、友だちのためならがんばれるところがあります。</p>
-                <p class="detail">すぐ泣いたり、ドラえもんに頼ったりすることも多いです。でも映画の冒険では、出会った仲間を放っておけなくて、こわくても前に進みます。射撃とあやとりは、ちょっと自信があります。</p>
+                <p class="intro">勉強や運動は苦手でも、困っている相手を放っておけないやさしさを持つ少年。</p>
+                <p class="detail">日常ではドラえもんに頼ることが多い一方、映画では出会った仲間のために自分から動く場面が多い。弱さがあるからこそ、こわくても一歩踏み出す姿が物語の中心になる。射撃とあやとりが得意。</p>
                 <a class="official-link" href="https://www.tv-asahi.co.jp/doraemon/character/" target="_blank" rel="noreferrer">公式キャラクター紹介を見る</a>
               </div>
             </article>
@@ -611,8 +743,8 @@
                 <div class="meta"><span class="tag">しっかり者</span><span class="tag red">思いやり</span></div>
                 <h3>源しずか</h3>
                 <p class="voice"><span>声優</span> かかずゆみ</p>
-                <p class="intro">私は源しずかです。みんなが困っているときに、落ち着いて考えたり、声をかけたりすることを大事にしています。</p>
-                <p class="detail">ピアノやバイオリン、勉強などにまじめに取り組むタイプです。冒険では、ただ守られるだけでなく、自分で判断して仲間を支えます。みんながけんかしても、ちゃんと話せば分かり合えると信じています。</p>
+                <p class="intro">まじめで思いやりがあり、仲間の気持ちに気づけるしっかり者。</p>
+                <p class="detail">日常では落ち着いた存在として描かれるが、映画では自分の判断で仲間を支える場面も多い。やさしさだけでなく、危険な状況でも相手と向き合おうとする芯の強さが魅力。</p>
                 <a class="official-link" href="https://www.tv-asahi.co.jp/doraemon/character/" target="_blank" rel="noreferrer">公式キャラクター紹介を見る</a>
               </div>
             </article>
@@ -623,8 +755,8 @@
                 <div class="meta"><span class="tag">情報通</span><span class="tag green">アイデア</span></div>
                 <h3>骨川スネ夫</h3>
                 <p class="voice"><span>声優</span> 関智一</p>
-                <p class="intro">ぼくは骨川スネ夫。新しいものや珍しいものには詳しいし、センスにも自信があります。</p>
-                <p class="detail">ちょっと自慢しすぎるところはあるけれど、観察力や情報集めではみんなの役に立ちます。怖い場面では弱気になることもありますが、仲間と一緒なら最後までついていきます。ラジコンや模型も得意です。</p>
+                <p class="intro">流行や珍しいものに詳しく、情報感度の高いクラスメイト。</p>
+                <p class="detail">自慢や見栄が先に出ることもあるが、観察力や機転で冒険を助ける場面がある。怖がりな一面があるため、危機の大きさを観客に伝える役割も担う。ラジコンや模型など細かいものづくりも得意。</p>
                 <a class="official-link" href="https://www.tv-asahi.co.jp/doraemon/character/" target="_blank" rel="noreferrer">公式キャラクター紹介を見る</a>
               </div>
             </article>
@@ -635,8 +767,8 @@
                 <div class="meta"><span class="tag">力持ち</span><span class="tag red">仲間思い</span></div>
                 <h3>剛田武 / ジャイアン</h3>
                 <p class="voice"><span>声優</span> 木村昴</p>
-                <p class="intro">俺はジャイアン。力なら誰にも負けないし、仲間がピンチなら真っ先に助けに行くぜ。</p>
-                <p class="detail">普段は強引なところもあるけれど、映画の冒険では頼れるリーダー役になることが多いです。大事な友だちを見捨てることはしません。歌が好きで、自分では最高のリサイタルだと思っています。</p>
+                <p class="intro">力が強く、感情表現もまっすぐなガキ大将。</p>
+                <p class="detail">日常では強引なところが目立つが、映画では仲間を守る頼もしさが前面に出る。危険な場面でも引かない度胸があり、大事な友だちを見捨てない義理堅さも持つ。歌が好きで、リサイタルを開くこともある。</p>
                 <a class="official-link" href="https://www.tv-asahi.co.jp/doraemon/character/" target="_blank" rel="noreferrer">公式キャラクター紹介を見る</a>
               </div>
             </article>
@@ -645,7 +777,7 @@
           <div class="note-panel">
             <div>
               <h3>映画年表へ戻る</h3>
-              <p class="detail">5人の性格を知ってから映画年表を見ると、作品ごとの活躍や関係性も追いやすくなります。</p>
+              <p class="detail">5人の性格を知ってから映画年表を見ると、作品ごとの活躍や関係性も追いやすくなる。</p>
             </div>
             <a class="button secondary" href="index.html">年表ページへ</a>
           </div>
@@ -655,8 +787,31 @@
 
     <footer>
       <div class="wrap">
-        <p>非公式ファンサイト / Character visuals: CSSで作成した簡易アイコン / ドラえもん、各キャラクター名および関連名称は各権利者に帰属します。</p>
+        <p>非公式ファンサイト / Character visuals: CSSで作成した簡易アイコン / ドラえもん、各キャラクター名および関連名称は各権利者に帰属。</p>
       </div>
     </footer>
+    <script>
+      document.body.classList.add("motion-ready");
+
+      const popTargets = document.querySelectorAll(
+        ".character-card, .note-panel, .mini-face, .treat"
+      );
+
+      popTargets.forEach((item, index) => {
+        item.classList.add("pop-item");
+        item.style.setProperty("--pop-delay", `${Math.min(index % 6, 5) * 45}ms`);
+      });
+
+      const popObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle("is-visible", entry.isIntersecting);
+          });
+        },
+        { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      );
+
+      popTargets.forEach((item) => popObserver.observe(item));
+    </script>
   </body>
 </html>

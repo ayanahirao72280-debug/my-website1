@@ -155,10 +155,13 @@
       }
 
       h1 {
-        max-width: 760px;
+        max-width: 820px;
         color: var(--navy);
-        font-size: clamp(2.45rem, 6.3vw, 5.8rem);
-        line-height: 1;
+        font-size: clamp(2.35rem, 5.4vw, 5.15rem);
+        line-height: 1.05;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
       }
 
       .lead {
@@ -275,6 +278,107 @@
         line-height: 0.95;
       }
 
+      .treat {
+        position: absolute;
+        z-index: 3;
+        pointer-events: none;
+        filter: drop-shadow(0 16px 18px rgba(12, 42, 68, 0.22));
+      }
+
+      .dorayaki {
+        left: 9%;
+        top: 74px;
+        width: 118px;
+        height: 66px;
+        border-radius: 50%;
+        background:
+          radial-gradient(ellipse at 50% 54%, #7a3f1f 0 36%, transparent 37%),
+          radial-gradient(ellipse at 50% 48%, #f0bf62 0 58%, #b96b33 59% 100%);
+        transform: rotate(-10deg);
+      }
+
+      .dorayaki::before {
+        content: "";
+        position: absolute;
+        inset: 13px 18px 18px;
+        border-radius: 50%;
+        background: rgba(255, 229, 151, 0.42);
+      }
+
+      .bell {
+        right: 32%;
+        top: 48px;
+        width: 78px;
+        height: 78px;
+        border: 5px solid #9a6b00;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 64%, #9a6b00 0 8%, transparent 9%),
+          linear-gradient(180deg, #ffe27a 0 58%, #f0b92f 59% 100%);
+      }
+
+      .bell::before,
+      .bell::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #9a6b00;
+      }
+
+      .bell::before {
+        top: 31px;
+        width: 62px;
+        height: 5px;
+        border-radius: 999px;
+      }
+
+      .bell::after {
+        bottom: 12px;
+        width: 28px;
+        height: 5px;
+        border-radius: 999px;
+      }
+
+      body.motion-ready .pop-item {
+        opacity: 0;
+        transform: translateY(34px) scale(0.94);
+        transition:
+          opacity 520ms ease,
+          transform 620ms cubic-bezier(0.2, 1.45, 0.34, 1);
+        transition-delay: var(--pop-delay, 0ms);
+      }
+
+      body.motion-ready .pop-item.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      body.motion-ready .treat.pop-item {
+        transform: translateY(26px) scale(0.78) rotate(-10deg);
+      }
+
+      body.motion-ready .bell.pop-item {
+        transform: translateY(26px) scale(0.78) rotate(8deg);
+      }
+
+      body.motion-ready .treat.pop-item.is-visible {
+        transform: translateY(0) scale(1) rotate(-10deg);
+      }
+
+      body.motion-ready .bell.pop-item.is-visible {
+        transform: translateY(0) scale(1) rotate(8deg);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body.motion-ready .pop-item,
+        body.motion-ready .pop-item.is-visible {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
       section {
         padding: 72px 0;
       }
@@ -291,6 +395,9 @@
         color: var(--navy);
         font-size: clamp(1.85rem, 4vw, 3.05rem);
         line-height: 1.14;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
       }
 
       .section-note {
@@ -470,8 +577,20 @@
       }
 
       .movie-body h3 {
-        font-size: 1.06rem;
-        line-height: 1.42;
+        font-size: 1.12rem;
+        line-height: 1.36;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
+      }
+
+      .title-prefix {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 900;
+        line-height: 1.2;
       }
 
       .meta {
@@ -528,6 +647,9 @@
       .theme-card h3 {
         font-size: 1.08rem;
         line-height: 1.35;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
       }
 
       .watch-list {
@@ -630,6 +752,26 @@
           font-size: 1.38rem;
         }
 
+        .dorayaki {
+          top: 164px;
+          left: 22px;
+          width: 88px;
+          height: 50px;
+        }
+
+        .bell {
+          top: 150px;
+          right: 28px;
+          width: 58px;
+          height: 58px;
+          border-width: 4px;
+        }
+
+        .bell::before {
+          top: 23px;
+          width: 45px;
+        }
+
         .ticket-stack {
           left: 18px;
           right: 18px;
@@ -679,6 +821,8 @@
         </div>
         <div class="hero-visual" role="img" aria-label="映画チケットが重なるドラえもん映画アーカイブ風のビジュアル">
           <div class="hero-badge">15<br>YEARS</div>
+          <div class="treat dorayaki" aria-hidden="true"></div>
+          <div class="treat bell" aria-hidden="true"></div>
           <div class="ticket-stack" aria-hidden="true">
             <div class="ticket">
               <strong>2026 海底鬼岩城</strong>
@@ -745,7 +889,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">海底</span><span class="tag red">最新作</span></div>
-                <h3>映画ドラえもん 新・のび太の海底鬼岩城</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>新・のび太の海底鬼岩城</h3>
                 <p>海底キャンプから始まる冒険。ムー連邦や鬼岩城をめぐる、海の底のスケール感が見どころです。</p>
               </div>
             </article>
@@ -756,7 +900,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">絵画</span><span class="tag green">ファンタジー</span></div>
-                <h3>映画ドラえもん のび太の絵世界物語</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の絵世界物語</h3>
                 <p>絵の世界をテーマにした一作。描かれた世界へ入り込むような、創作と冒険の楽しさが軸です。</p>
               </div>
             </article>
@@ -767,7 +911,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">音楽</span><span class="tag red">地球</span></div>
-                <h3>映画ドラえもん のび太の地球交響楽</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の地球交響楽</h3>
                 <p>音楽が消える危機に立ち向かう物語。リコーダーや演奏が、冒険の力として描かれます。</p>
               </div>
             </article>
@@ -778,7 +922,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">空</span><span class="tag green">理想郷</span></div>
-                <h3>映画ドラえもん のび太と空の理想郷</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太と空の理想郷</h3>
                 <p>空に浮かぶ理想郷を探す冒険。完璧に見える世界の裏側に迫るミステリー性もあります。</p>
               </div>
             </article>
@@ -789,7 +933,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">宇宙</span><span class="tag red">友情</span></div>
-                <h3>映画ドラえもん のび太の宇宙小戦争 2021</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の宇宙小戦争 2021</h3>
                 <p>小さな宇宙人パピとの出会いから始まる宇宙冒険。小さな仲間を守る友情が中心です。</p>
               </div>
             </article>
@@ -808,7 +952,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">恐竜</span><span class="tag green">新作物語</span></div>
-                <h3>映画ドラえもん のび太の新恐竜</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の新恐竜</h3>
                 <p>双子の恐竜キューとミューとの出会いを描く作品。育てる責任と別れが心に残ります。</p>
               </div>
             </article>
@@ -819,7 +963,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">月</span><span class="tag">想像力</span></div>
-                <h3>映画ドラえもん のび太の月面探査記</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の月面探査記</h3>
                 <p>月の裏側と想像力をめぐる冒険。見えないものを信じる気持ちが物語の芯になります。</p>
               </div>
             </article>
@@ -830,7 +974,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">宝島</span><span class="tag red">海賊</span></div>
-                <h3>映画ドラえもん のび太の宝島</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の宝島</h3>
                 <p>宝島を目指す海洋冒険。家族、仲間、船旅のワクワク感が強いエンタメ作です。</p>
               </div>
             </article>
@@ -841,7 +985,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">南極</span><span class="tag green">氷</span></div>
-                <h3>映画ドラえもん のび太の南極カチコチ大冒険</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の南極カチコチ大冒険</h3>
                 <p>南極の氷の世界が舞台。古代文明やリングをめぐる謎が、寒さの中で広がっていきます。</p>
               </div>
             </article>
@@ -852,7 +996,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">原始時代</span><span class="tag red">リメイク</span></div>
-                <h3>映画ドラえもん 新・のび太の日本誕生</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>新・のび太の日本誕生</h3>
                 <p>7万年前の日本を舞台にした大冒険。仲間と新しい居場所を作る楽しさがあります。</p>
               </div>
             </article>
@@ -863,7 +1007,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">宇宙</span><span class="tag green">ヒーロー</span></div>
-                <h3>映画ドラえもん のび太の宇宙英雄記</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太の宇宙英雄記</h3>
                 <p>ヒーロー映画ごっこから本物の宇宙冒険へ。役になりきる楽しさと成長が重なります。</p>
               </div>
             </article>
@@ -874,7 +1018,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">秘境</span><span class="tag red">リメイク</span></div>
-                <h3>映画ドラえもん 新・のび太の大魔境</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>新・のび太の大魔境</h3>
                 <p>未知のジャングルと王国をめぐる冒険。ペコとの関係が、仲間を信じる物語につながります。</p>
               </div>
             </article>
@@ -885,7 +1029,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">ひみつ道具</span><span class="tag green">博物館</span></div>
-                <h3>映画ドラえもん のび太のひみつ道具博物館</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太のひみつ道具博物館</h3>
                 <p>ひみつ道具の博物館を舞台にしたミステリー。道具好きには特に楽しい一作です。</p>
               </div>
             </article>
@@ -896,7 +1040,7 @@
               </div>
               <div class="movie-body">
                 <div class="meta"><span class="tag">島</span><span class="tag red">動物</span></div>
-                <h3>映画ドラえもん のび太と奇跡の島</h3>
+                <h3><span class="title-prefix">映画ドラえもん</span>のび太と奇跡の島</h3>
                 <p>絶滅動物が暮らす島が舞台。自然や家族をめぐるテーマが印象的です。</p>
               </div>
             </article>
@@ -997,5 +1141,28 @@
         <p>非公式ファンサイト / Visuals: CSSで作成した映画チケット風ビジュアル / Last updated: 2026.05.21</p>
       </div>
     </footer>
+    <script>
+      document.body.classList.add("motion-ready");
+
+      const popTargets = document.querySelectorAll(
+        ".stat-card, .movie-card, .theme-card, .note-panel, .source-panel, .watch-visual, .ticket, .treat"
+      );
+
+      popTargets.forEach((item, index) => {
+        item.classList.add("pop-item");
+        item.style.setProperty("--pop-delay", `${Math.min(index % 6, 5) * 45}ms`);
+      });
+
+      const popObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle("is-visible", entry.isIntersecting);
+          });
+        },
+        { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      );
+
+      popTargets.forEach((item) => popObserver.observe(item));
+    </script>
   </body>
 </html>
